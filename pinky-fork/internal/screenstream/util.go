@@ -193,7 +193,7 @@ const viewPage = `<!doctype html>
 
   /* 状态浮层 */
   #bar{
-    position:absolute;left:50%;bottom:12px;transform:translateX(-50%);
+    position:absolute;left:50%;top:10px;transform:translateX(-50%);
     display:flex;align-items:center;gap:5px;
     padding:3px 10px;border-radius:999px;z-index:4;
     font-size:11px;color:#fff;
@@ -307,11 +307,12 @@ const viewPage = `<!doctype html>
 
   window.addEventListener('resize', layout);
 
+  // 只在异常时显示浮层；正常播放时不打扰画面
   function status(text, ok){
     st.textContent=text; dot.className = ok ? '' : 'off';
-    bar.classList.add('show');
     clearTimeout(hideTimer);
-    if(ok) hideTimer=setTimeout(function(){ bar.classList.remove('show'); }, 1600);
+    if(ok){ bar.classList.remove('show'); }
+    else { bar.classList.add('show'); }
   }
   function connect(){
     n++; img.src='/screen/stream?t='+n; status('连接中…', true);
