@@ -1,0 +1,237 @@
+window.__ModuleLoader__.load({
+	/*
+	 *  Pinky 手机镜像 —— DSH 右侧边栏 tab
+	 *
+	 *  把 Pinky 带画面流的 daemon（/screen/stream）显示在 DSH 侧边栏里：
+	 *  实时画面 + 设备/连接状态 + 「接管屏幕操作」开关。
+	 *
+	 *  画面来源：本机 Pinky daemon 的 MJPEG（默认 127.0.0.1:7466）。
+	 */
+  id: 'dsh-plugin-pinky',
+  factory: (require) => {
+    var module = { exports: {} };
+    var exports = module.exports;
+    Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+
+    let react = require('react');
+    let jsx = require('react/jsx-runtime');
+    const h = jsx.jsx;        // 单 children：h(type, {children})
+    const hs = jsx.jsxs;      // 多 children：hs(type, {children:[...]})
+    const { useState, useEffect, useRef, useCallback } = react;
+
+    const KIND = 'pinky';
+    const ID = 'dsh-plugin-pinky';
+    const NS = 'pinkyMirror';
+
+    /** 画面流地址，可在设置里改（存 localStorage）。 */
+    const DEFAULT_SRC = 'http://127.0.0.1:7466';
+    const STORE_KEY = 'dsh.pinky.settings.v1';
+
+    const zh = {
+      'type.label': '手机',
+      'guide.title': '手机镜像',
+      'guide.description': '在侧边栏看 Pinky 的手机实时画面',
+      'panel.connecting': '连接中…',
+      'panel.offline': '画面未连接',
+      'panel.offlineHint': '请确认 Pinky daemon 已带 --screen 启动',
+      'panel.retry': '重试',
+      'panel.settings': '设置',
+      'panel.takeover': '接管屏幕操作',
+      'panel.takeoverHint': '开启后由本面板独占操作，关闭时不影响你在手机上的操作',
+      'panel.source': '画面地址',
+      'panel.save': '保存',
+      'panel.reset': '恢复默认',
+      'panel.status': '状态',
+      'panel.live': '实时',
+      'panel.idle': '画面静止',
+    };
+    const en = {
+      'type.label': 'Phone',
+      'guide.title': 'Phone mirror',
+      'guide.description': 'Live phone screen from Pinky, in the sidebar',
+      'panel.connecting': 'Connecting…',
+      'panel.offline': 'Not connected',
+      'panel.offlineHint': 'Check that the Pinky daemon runs with --screen',
+      'panel.retry': 'Retry',
+      'panel.settings': 'Settings',
+      'panel.takeover': 'Take over screen control',
+      'panel.takeoverHint': 'When on, this panel owns input; when off, your own taps on the phone work as usual',
+      'panel.source': 'Stream address',
+      'panel.save': 'Save',
+      'panel.reset': 'Reset',
+      'panel.status': 'Status',
+      'panel.live': 'Live',
+      'panel.idle': 'Still',
+    };
+
+    // ---------- 设置存储 ----------
+    function loadSettings() {
+      try {
+        const raw = localStorage.getItem(STORE_KEY);
+        if (raw) return { src: DEFAULT_SRC, takeover: false, ...JSON.parse(raw) };
+      } catch {}
+      return { src: DEFAULT_SRC, takeover: false };
+    }
+    function saveSettings(s) {
+      try { localStorage.setItem(STORE_KEY, JSON.stringify(s)); } catch {}
+    }
+
+    // ---------- 面板样式（内联，避免依赖外部 CSS） ----------
+    const css = {
+      root: {
+        display: 'flex', flexDirection: 'column', height: '100%',
+        fontSize: 13, color: 'var(--dsh-text-primary, #e8e8e8)',
+        background: 'var(--dsh-bg-primary, #1b1b1f)',
+      },
+      bar: {
+        display: 'flex', alignItems: 'center', gap: 8,
+        padding: '6px 10px', borderBottom: '1px solid var(--dsh-border, #333)',
+        flex: '0 0 auto', minHeight: 32,
+      },
+      dot: (on) => ({
+        width: 7, height: 7, borderRadius: '50%', flex: '0 0 auto',
+        background: on ? '#34c759' : '#8a8a8e',
+        boxShadow: on ? '0 0 6px #34c75988' : 'none',
+      }),
+      label: { opacity: 0.75, fontSize: 12, whiteSpace: 'nowrap' },
+      spacer: { flex: 1 },
+      btn: {
+        padding: '3px 9px', borderRadius: 6, fontSize: 12, cursor: 'pointer',
+        border: '1px solid var(--dsh-border, #3a3a3d)',
+        background: 'var(--dsh-bg-secondary, #26262b)',
+        color: 'inherit', lineHeight: 1.5,
+      },
+      screenWrap: {
+        flex: 1, minHeight: 0, display: 'flex',
+        alignItems: 'center', justifyContent: 'center',
+        overflow: 'hidden', background: '#0d0d10', padding: 4,
+      },
+      img: {
+        maxWidth: '100%', maxHeight: '100%',
+        objectFit: 'contain', display: 'block',
+        borderRadius: 6, imageRendering: 'auto',
+      },
+      center: {
+        flex: 1, display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center', gap: 10,
+        padding: 16, textAlign: 'center', opacity: 0.8,
+      },
+      settings: {
+        borderTop: '1px solid var(--dsh-border, #333)',
+        padding: 10, display: 'flex', flexDirection: 'column', gap: 8,
+        flex: '0 0 auto', background: 'var(--dsh-bg-secondary, #222226)',
+      },
+      row: { display: 'flex', alignItems: 'center', gap: 8 },
+      input: {
+        flex: 1, padding: '4px 8px', borderRadius: 6, fontSize: 12,
+        border: '1px solid var(--dsh-border, #3a3a3d)',
+        background: 'var(--dsh-bg-primary, #1b1b1f)', color: 'inherit',
+        minWidth: 0,
+      },
+      hint: { fontSize: 11, opacity: 0.6, lineHeight: 1.4 },
+    };
+
+    // ---------- 主体组件 ----------
+    /**
+     * 手机画面面板。
+     * 用 iframe 嵌入画面服务自己的 /screen/view 页面：
+     * 播放逻辑由服务端页面负责，宿主侧只提供一块区域，互不耦合。
+     */
+    function PinkyPanel(props) {
+      const p = props || {};
+      const t = (typeof p.t === 'function') ? p.t : ((k) => zh[k] || en[k] || k);
+      const settings = loadSettings();
+      const base = String(settings.src || DEFAULT_SRC).replace(/\/+$/, '');
+
+      return h('div', {
+        style: {
+          display: 'flex', flexDirection: 'column',
+          width: '100%', height: '100%', minHeight: 0, background: '#0d0d10',
+        },
+        children: [
+          hs('iframe', {
+            key: 'view',
+            src: base + '/screen/view',
+            title: t('type.label'),
+            allow: 'clipboard-read',
+            style: { flex: 1, width: '100%', height: '100%', border: 0, display: 'block', minHeight: 0 },
+          }),
+        ],
+      });
+    }
+
+    function PinkyTitle() {
+      return h('span', { children: '\u{1F4F1} 手机' });
+    }
+
+    // ---------- 插件装配 ----------
+    // 浏览器侧必须声明要用到的客户端能力，否则 loader 创建实例时不会注入，
+    // apply() 里访问 ctx.sidebarRightTabs 会直接抛错（插件启动即 FAILED）。
+    const inject = ['slots', 'locale', 'sidebarRightTabs', 'sidebarRight', 'shortcuts'];
+
+    function apply(ctx) {
+      const NS_ = NS;
+      let translate = (k) => zh[k] || k;
+      try {
+        ctx.locale.register(NS_, { zh, en });
+        const loc = ctx.locale;
+        if (loc && typeof loc.bind === 'function') translate = loc.bind(NS_);
+      } catch {}
+
+      // 快捷键命令：guide 卡片点一下就靠它打开 tab。
+      // 没有这个命令时，卡片不执行任何动作，tab 永远不会被打开（面板就是空白）。
+      ctx.inject(['shortcuts'], (c) => {
+        c.effect(() => c.shortcuts.register({
+          id: 'pinky.open',
+          label: () => translate('guide.title'),
+          aliases: ['pinky', 'phone', '手机'],
+          defaults: {},
+          regions: ['page', 'editable', 'terminal'],
+          modals: [],
+          resolve: ({ target: element }) => {
+            const target = ctx.sidebarRight.commandTarget(element);
+            if (target === undefined) {
+              return { status: 'blocked', reason: translate('panel.offlineHint') };
+            }
+            return {
+              status: 'handled',
+              run: () => { ctx.sidebarRight.openTabFromTarget(KIND, target); },
+            };
+          },
+        }), 'pinky: command');
+      });
+
+      const definition = {
+        id: ID,
+        kind: KIND,
+        priority: 'extension',
+        title: () => translate('type.label'),
+        guide: [{
+          id: 'pinky',
+          order: 50,
+          title: () => translate('guide.title'),
+          description: () => translate('guide.description'),
+        }],
+      };
+
+      ctx.effect(() => ctx.sidebarRightTabs.register(definition), 'pinky: tab type');
+      // slot 必须用 slots.inject 包裹：等槽位声明上了 ledger 再注册，
+      // 直接 register 在槽位尚未就绪时会失效（官方内置插件也是这么写的）。
+      ctx.effect(
+        () => ctx.slots.inject('sidebar.right.pane.tab', () =>
+          ctx.slots.register({ name: 'sidebar.right.pane.tab', key: ID }, PinkyPanel)),
+        'pinky: tab body',
+      );
+      ctx.effect(
+        () => ctx.slots.inject('sidebar.right.pane.tab.title', () =>
+          ctx.slots.register({ name: 'sidebar.right.pane.tab.title', key: ID }, PinkyTitle)),
+        'pinky: tab title',
+      );
+    }
+
+    exports.apply = apply;
+    exports.inject = inject;
+    return module.exports;
+  },
+});
+// cache-bust 1794400092

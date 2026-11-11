@@ -1,0 +1,23 @@
+{
+  "name": "Pinky",
+  "slug": "pinky",
+  "identifier": "app.pinky.desktop",
+  "version": "0.0.0-dev",
+  "copyright": "Copyright © 2026 DIYgod",
+  "icon": "../../assets/icon/pinky-macos-1024.png",
+  "out": "../../build/pinky",
+  "i18n": { "dir": "locales", "source": "en" },
+  "macos": {
+    "icon": "../../assets/icon/Pinky.icns",
+    "minimumSystemVersion": "13.0",
+    "infoPlist": {
+      "NSLocalNetworkUsageDescription": "Pinky looks for your phones on this network to connect to them over Wi-Fi: Android phones to pair them, and iPhones and iPads that this Mac stopped listing."
+    }
+  },
+  "linux": {
+    "webview": false,
+    "comment": "Let AI agents use your phone, with you in the loop",
+    "categories": ["Utility"],
+    "command": "pinkyctl"
+  }
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The companion's service (accessibility_service.xml) plus gestures and
+  screenshots, which the standalone prototype acts and looks with. Still
+  not an accessibility tool: views marked accessibilityDataSensitive, such
+  as Pinky's own approval card, stay hidden from it and, on Android 15 and
+  later, drop the touches it injects.
+-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeAllMask"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagRetrieveInteractiveWindows|flagReportViewIds|flagInputMethodEditor"
+    android:canPerformGestures="true"
+    android:canRequestFilterKeyEvents="false"
+    android:canRequestTouchExplorationMode="false"
+    android:canRetrieveWindowContent="true"
+    android:canTakeScreenshot="true"
+    android:description="@string/standalone_service_description"
+    android:isAccessibilityTool="false"
+    android:notificationTimeout="0" />

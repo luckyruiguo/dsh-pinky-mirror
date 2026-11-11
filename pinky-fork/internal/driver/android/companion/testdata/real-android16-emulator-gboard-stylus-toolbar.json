@@ -1,0 +1,451 @@
+{
+ "display": {
+  "id": 0,
+  "width": 1080,
+  "height": 2400,
+  "density_dpi": 420,
+  "rotation": 0
+ },
+ "locked": false,
+ "secure_locked": false,
+ "windows": [
+  {
+   "id": 180,
+   "type": "system",
+   "layer": 2,
+   "bounds": [
+    0,
+    0,
+    1080,
+    128
+   ],
+   "root_ms": 0,
+   "walk_ms": 0,
+   "nodes": 0
+  },
+  {
+   "id": 178,
+   "type": "input_method",
+   "layer": 1,
+   "title": "Gboard",
+   "bounds": [
+    0,
+    896,
+    1080,
+    2400
+   ],
+   "region": [
+    [
+     21,
+     896,
+     169,
+     1586
+    ],
+    [
+     0,
+     2337,
+     1080,
+     2400
+    ]
+   ],
+   "root_ms": 0,
+   "walk_ms": 0,
+   "nodes": 0
+  },
+  {
+   "id": 199,
+   "type": "application",
+   "layer": 0,
+   "title": "Settings Services",
+   "bounds": [
+    0,
+    0,
+    1080,
+    2400
+   ],
+   "active": true,
+   "focused": true,
+   "package": "com.google.android.settings.intelligence",
+   "root": {
+    "class": "android.widget.FrameLayout",
+    "bounds": [
+     0,
+     0,
+     1080,
+     2400
+    ],
+    "node": -2147455611,
+    "children": [
+     {
+      "class": "android.widget.FrameLayout",
+      "id": "com.google.android.settings.intelligence:id/open_search_view_root",
+      "bounds": [
+       0,
+       0,
+       1080,
+       2400
+      ],
+      "node": 199095,
+      "children": [
+       {
+        "class": "android.widget.ImageButton",
+        "desc": "Back",
+        "bounds": [
+         0,
+         128,
+         126,
+         317
+        ],
+        "clickable": true,
+        "focusable": true,
+        "node": 205822
+       },
+       {
+        "class": "android.widget.EditText",
+        "text": "display",
+        "hint": "Search settings",
+        "id": "com.google.android.settings.intelligence:id/open_search_view_edit_text",
+        "bounds": [
+         126,
+         128,
+         933,
+         317
+        ],
+        "clickable": true,
+        "long_clickable": true,
+        "editable": true,
+        "focusable": true,
+        "focused": true,
+        "node": 208705
+       },
+       {
+        "class": "android.widget.ImageButton",
+        "desc": "Clear text",
+        "id": "com.google.android.settings.intelligence:id/open_search_view_clear_button",
+        "bounds": [
+         933,
+         149,
+         1080,
+         296
+        ],
+        "clickable": true,
+        "focusable": true,
+        "node": 209666
+       },
+       {
+        "class": "android.widget.ScrollView",
+        "id": "com.google.android.settings.intelligence:id/search_scrollview",
+        "bounds": [
+         0,
+         320,
+         1080,
+         2400
+        ],
+        "scrollable": true,
+        "focusable": true,
+        "node": 214471,
+        "children": [
+         {
+          "class": "android.widget.ScrollView",
+          "id": "com.google.android.settings.intelligence:id/main_content_scrollable_container",
+          "bounds": [
+           0,
+           320,
+           1080,
+           2400
+          ],
+          "focusable": true,
+          "node": 216393,
+          "children": [
+           {
+            "class": "android.support.v7.widget.RecyclerView",
+            "id": "com.google.android.settings.intelligence:id/list_results",
+            "bounds": [
+             0,
+             320,
+             1080,
+             2400
+            ],
+            "focusable": true,
+            "node": 223120,
+            "children": [
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               320,
+               1080,
+               543
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 242340,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "Display size",
+                "id": "android:id/title",
+                "bounds": [
+                 63,
+                 362,
+                 344,
+                 442
+                ],
+                "node": 246184
+               },
+               {
+                "class": "android.widget.TextView",
+                "text": "Display & touch > Display size and text",
+                "desc": "Display & touch, Display size and text",
+                "id": "com.google.android.settings.intelligence:id/breadcrumb",
+                "bounds": [
+                 63,
+                 442,
+                 700,
+                 501
+                ],
+                "node": 248106
+               }
+              ]
+             },
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               543,
+               1080,
+               766
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 250028,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "Display & touch",
+                "id": "android:id/title",
+                "bounds": [
+                 63,
+                 585,
+                 439,
+                 665
+                ],
+                "node": 253872
+               },
+               {
+                "class": "android.widget.TextView",
+                "text": "Display & touch",
+                "desc": "Display & touch",
+                "id": "com.google.android.settings.intelligence:id/breadcrumb",
+                "bounds": [
+                 63,
+                 665,
+                 323,
+                 724
+                ],
+                "node": 255794
+               }
+              ]
+             },
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               766,
+               1080,
+               989
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 257716,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "Display size and text",
+                "id": "android:id/title",
+                "bounds": [
+                 63,
+                 808,
+                 556,
+                 888
+                ],
+                "node": 261560
+               },
+               {
+                "class": "android.widget.TextView",
+                "text": "Display & touch",
+                "desc": "Display & touch",
+                "id": "com.google.android.settings.intelligence:id/breadcrumb",
+                "bounds": [
+                 63,
+                 888,
+                 323,
+                 947
+                ],
+                "node": 263482
+               }
+              ]
+             },
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               989,
+               1080,
+               1212
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 265404,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "Display over other apps",
+                "id": "android:id/title",
+                "bounds": [
+                 63,
+                 1031,
+                 633,
+                 1111
+                ],
+                "node": 269248
+               },
+               {
+                "class": "android.widget.TextView",
+                "text": "Apps > Special app access",
+                "desc": "Apps, Special app access",
+                "id": "com.google.android.settings.intelligence:id/breadcrumb",
+                "bounds": [
+                 63,
+                 1111,
+                 506,
+                 1170
+                ],
+                "node": 271170
+               }
+              ]
+             },
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               1212,
+               1080,
+               1435
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 273092,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "Lock screen",
+                "id": "android:id/title",
+                "bounds": [
+                 63,
+                 1254,
+                 356,
+                 1334
+                ],
+                "node": 276936
+               },
+               {
+                "class": "android.widget.TextView",
+                "text": "Display & touch",
+                "desc": "Display & touch",
+                "id": "com.google.android.settings.intelligence:id/breadcrumb",
+                "bounds": [
+                 63,
+                 1334,
+                 323,
+                 1393
+                ],
+                "node": 278858
+               }
+              ]
+             },
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               1435,
+               1080,
+               1658
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 280780,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "Bedtime mode",
+                "id": "android:id/title",
+                "bounds": [
+                 189,
+                 1477,
+                 542,
+                 1557
+                ],
+                "node": 284624
+               },
+               {
+                "class": "android.widget.TextView",
+                "text": "Digital Wellbeing > Bedtime mode",
+                "desc": "Digital Wellbeing > Bedtime mode",
+                "id": "com.google.android.settings.intelligence:id/breadcrumb",
+                "bounds": [
+                 189,
+                 1557,
+                 751,
+                 1616
+                ],
+                "node": 286546
+               }
+              ]
+             },
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               1658,
+               1080,
+               1817
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 288468,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "Search Support for \"display\"",
+                "id": "android:id/title",
+                "bounds": [
+                 63,
+                 1703,
+                 522,
+                 1754
+                ],
+                "node": 293273
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "root_ms": 1,
+   "walk_ms": 11,
+   "nodes": 28
+  }
+ ],
+ "windows_ms": 0,
+ "nodes": 28,
+ "time": 1794058675034,
+ "took_ms": 13
+}

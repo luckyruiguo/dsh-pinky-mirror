@@ -1,0 +1,29 @@
+# Pinky's Help › Send Feedback… opens this form with its fields filled in
+# through query parameters named after their ids (internal/telemetry,
+# IssueURL): keep the ids message, version and diagnostics.
+name: Feedback
+description: A problem or an idea. Pinky's Help › Send Feedback… fills this in.
+labels: [feedback]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for writing. Issues here are public: read the diagnostics below and take out anything you would rather not share.
+  - type: textarea
+    id: message
+    attributes:
+      label: What happened, or what would make Pinky better?
+      description: If something went wrong, say what you were doing and what you expected.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Pinky and system
+      placeholder: Pinky 0.2.0 · macOS 27.2 · arm64
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics
+      description: Versions, settings, phone models and the end of Pinky's logs, with phone names and IDs, the user name, e-mail and IP addresses taken out.
+      render: text

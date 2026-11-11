@@ -1,0 +1,65 @@
+package ui
+
+import (
+	"github.com/DIYgod/pinky/internal/gateway"
+	"github.com/DIYgod/pinky/ui/fakeapi"
+)
+
+// The client finds the gateway's extras with type assertions, which fail
+// without a word when a signature drifts: SetReadOnly gained an error
+// result once and read-only mode silently stopped reaching the gateway.
+// These assignments fail to compile instead.
+var (
+	_ mediaPather            = (*gateway.Gateway)(nil)
+	_ agentLister            = (*gateway.Gateway)(nil)
+	_ agentScoper            = (*gateway.Gateway)(nil)
+	_ readOnlySetter         = (*gateway.Gateway)(nil)
+	_ historyWiper           = (*gateway.Gateway)(nil)
+	_ exemptionKeeper        = (*gateway.Gateway)(nil)
+	_ rulesEditor            = (*gateway.Gateway)(nil)
+	_ fileProblemLister      = (*gateway.Gateway)(nil)
+	_ pairer                 = (*gateway.Gateway)(nil)
+	_ companionInstaller     = (*gateway.Gateway)(nil)
+	_ backgroundSetter       = (*gateway.Gateway)(nil)
+	_ connectionChooser      = (*gateway.Gateway)(nil)
+	_ agentStreamer          = (*gateway.Gateway)(nil)
+	_ recordingFinder        = (*gateway.Gateway)(nil)
+	_ recordingSetter        = (*gateway.Gateway)(nil)
+	_ retentionSetter        = (*gateway.Gateway)(nil)
+	_ historyExporter        = (*gateway.Gateway)(nil)
+	_ checkupRunner          = (*gateway.Gateway)(nil)
+	_ phoneRemover           = (*gateway.Gateway)(nil)
+	_ phonePauser            = (*gateway.Gateway)(nil)
+	_ wifiSetter             = (*gateway.Gateway)(nil)
+	_ foundChooser           = (*gateway.Gateway)(nil)
+	_ deviceServiceRestarter = (*gateway.Gateway)(nil)
+
+	_ mediaPather            = (*fakeapi.API)(nil)
+	_ agentLister            = (*fakeapi.API)(nil)
+	_ agentScoper            = (*fakeapi.API)(nil)
+	_ readOnlySetter         = (*fakeapi.API)(nil)
+	_ historyWiper           = (*fakeapi.API)(nil)
+	_ exemptionKeeper        = (*fakeapi.API)(nil)
+	_ rulesEditor            = (*fakeapi.API)(nil)
+	_ fileProblemLister      = (*fakeapi.API)(nil)
+	_ pairer                 = (*fakeapi.API)(nil)
+	_ hostChecker            = (*fakeapi.API)(nil)
+	_ hostChecker            = (*gateway.Gateway)(nil)
+	_ diskImageDownloader    = (*fakeapi.API)(nil)
+	_ diskImageDownloader    = (*gateway.Gateway)(nil)
+	_ companionInstaller     = (*fakeapi.API)(nil)
+	_ backgroundSetter       = (*fakeapi.API)(nil)
+	_ connectionChooser      = (*fakeapi.API)(nil)
+	_ agentStreamer          = (*fakeapi.API)(nil)
+	_ recordingFinder        = (*fakeapi.API)(nil)
+	_ recordingSetter        = (*fakeapi.API)(nil)
+	_ retentionSetter        = (*fakeapi.API)(nil)
+	_ historyExporter        = (*fakeapi.API)(nil)
+	_ recordingPlayer        = (*fakeapi.API)(nil)
+	_ checkupRunner          = (*fakeapi.API)(nil)
+	_ phoneRemover           = (*fakeapi.API)(nil)
+	_ phonePauser            = (*fakeapi.API)(nil)
+	_ wifiSetter             = (*fakeapi.API)(nil)
+	_ foundChooser           = (*fakeapi.API)(nil)
+	_ deviceServiceRestarter = (*fakeapi.API)(nil)
+)

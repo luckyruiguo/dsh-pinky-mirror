@@ -1,0 +1,13 @@
+{
+  "name": "Pinky Demo",
+  "slug": "pinky-demo",
+  "identifier": "dev.pinky.ui-demo",
+  "version": "0.0.1",
+  "copyright": "Copyright © 2026 DIYgod",
+  "icon": "../../assets/icon/pinky-macos-1024.png",
+  "out": "../../build/pinky-ui-demo",
+  "macos": {
+    "icon": "../../assets/icon/Pinky.icns",
+    "minimumSystemVersion": "13.0"
+  }
+}

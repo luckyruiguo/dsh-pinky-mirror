@@ -1,0 +1,26 @@
+[Unit]
+Description=Pinky 独立版网关 + 手机画面流（与系统 pinky 隔离）
+Documentation=https://github.com/luckyruiguo/dsh-pinky-mirror
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=@ROOT@
+
+# 隔离：私有 PINKY_HOME（config/data/run+socket 全在独立目录）
+# 不碰系统的 /run/user/<uid>/pinky/pinky.sock，两个网关可同时存在
+Environment=PINKY_HOME=@ROOT@/home
+Environment=LD_LIBRARY_PATH=@ROOT@/lib
+Environment=PINKY_FFMPEG_DIR=@ROOT@/lib
+
+ExecStart=@ROOT@/bin/pinky daemon \
+    --screen 127.0.0.1:@PORT@ \
+    --screen-fps 15 \
+    --screen-width 720
+
+Restart=always
+RestartSec=3
+ExecStopPost=/bin/rm -f @ROOT@/home/run/pinky.sock
+
+[Install]
+WantedBy=default.target

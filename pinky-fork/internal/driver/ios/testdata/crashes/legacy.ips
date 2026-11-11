@@ -1,0 +1,9 @@
+{"app_name":"Example","timestamp":"2021-03-01 09:00:00.00 +0000","app_version":"1.0","bundleID":"dev.pinky.example","bug_type":"109","os_version":"iPhone OS 14.4 (18D52)","name":"Example","incident_id":"0F0E0D0C-0000-4000-8000-000000000005"}
+Incident Identifier: 0F0E0D0C-0000-4000-8000-000000000005
+Process:             Example [777]
+Identifier:          dev.pinky.example
+Exception Type:  EXC_BAD_ACCESS (SIGSEGV)
+Exception Subtype: KERN_INVALID_ADDRESS at 0x0000000000000010
+
+Thread 0 Crashed:
+0   Example                       	0x0000000100004000 0x100000000 + 16384

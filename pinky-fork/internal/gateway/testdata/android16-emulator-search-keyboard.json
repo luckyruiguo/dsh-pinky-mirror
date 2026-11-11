@@ -1,0 +1,431 @@
+{
+ "display": {
+  "id": 0,
+  "width": 1080,
+  "height": 2400,
+  "density_dpi": 420,
+  "rotation": 0
+ },
+ "locked": false,
+ "secure_locked": false,
+ "windows": [
+  {
+   "id": 333,
+   "type": "system",
+   "layer": 2,
+   "bounds": [
+    0,
+    0,
+    1080,
+    128
+   ],
+   "root_ms": 0,
+   "walk_ms": 0,
+   "nodes": 0
+  },
+  {
+   "id": 331,
+   "type": "input_method",
+   "layer": 1,
+   "title": "简体中文 (拼音)",
+   "bounds": [
+    0,
+    1517,
+    1080,
+    2400
+   ],
+   "root_ms": 0,
+   "walk_ms": 0,
+   "nodes": 0
+  },
+  {
+   "id": 323,
+   "type": "application",
+   "layer": 0,
+   "title": "设置小助手",
+   "bounds": [
+    0,
+    0,
+    1080,
+    2400
+   ],
+   "active": true,
+   "focused": true,
+   "package": "com.google.android.settings.intelligence",
+   "root": {
+    "class": "android.widget.FrameLayout",
+    "bounds": [
+     0,
+     0,
+     1080,
+     2400
+    ],
+    "node": -2147455487,
+    "children": [
+     {
+      "class": "android.widget.FrameLayout",
+      "id": "com.google.android.settings.intelligence:id/open_search_view_root",
+      "bounds": [
+       0,
+       0,
+       1080,
+       2400
+      ],
+      "node": 39693,
+      "children": [
+       {
+        "class": "android.widget.ImageButton",
+        "desc": "返回",
+        "bounds": [
+         0,
+         128,
+         126,
+         317
+        ],
+        "clickable": true,
+        "focusable": true,
+        "node": 46420
+       },
+       {
+        "class": "android.widget.EditText",
+        "text": "显示",
+        "hint": "搜索设置",
+        "id": "com.google.android.settings.intelligence:id/open_search_view_edit_text",
+        "bounds": [
+         126,
+         128,
+         933,
+         317
+        ],
+        "clickable": true,
+        "long_clickable": true,
+        "editable": true,
+        "focusable": true,
+        "focused": true,
+        "node": 49303
+       },
+       {
+        "class": "android.widget.ImageButton",
+        "desc": "清除文字",
+        "id": "com.google.android.settings.intelligence:id/open_search_view_clear_button",
+        "bounds": [
+         933,
+         149,
+         1080,
+         296
+        ],
+        "clickable": true,
+        "focusable": true,
+        "node": 50264
+       },
+       {
+        "class": "android.widget.ScrollView",
+        "id": "com.google.android.settings.intelligence:id/search_scrollview",
+        "bounds": [
+         0,
+         320,
+         1080,
+         2400
+        ],
+        "scrollable": true,
+        "focusable": true,
+        "node": 55069,
+        "children": [
+         {
+          "class": "android.widget.ScrollView",
+          "id": "com.google.android.settings.intelligence:id/main_content_scrollable_container",
+          "bounds": [
+           0,
+           320,
+           1080,
+           2400
+          ],
+          "focusable": true,
+          "node": 56991,
+          "children": [
+           {
+            "class": "android.support.v7.widget.RecyclerView",
+            "id": "com.google.android.settings.intelligence:id/list_results",
+            "bounds": [
+             0,
+             320,
+             1080,
+             2400
+            ],
+            "scrollable": true,
+            "focusable": true,
+            "node": 63718,
+            "children": [
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               320,
+               1080,
+               548
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 82938,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "显示密码",
+                "id": "android:id/title",
+                "bounds": [
+                 63,
+                 362,
+                 275,
+                 445
+                ],
+                "node": 86782
+               },
+               {
+                "class": "android.widget.TextView",
+                "text": "安全和隐私",
+                "desc": "安全和隐私",
+                "id": "com.google.android.settings.intelligence:id/breadcrumb",
+                "bounds": [
+                 63,
+                 445,
+                 248,
+                 506
+                ],
+                "node": 88704
+               }
+              ]
+             },
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               548,
+               1080,
+               776
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 90626,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "显示字幕",
+                "id": "android:id/title",
+                "bounds": [
+                 63,
+                 590,
+                 275,
+                 673
+                ],
+                "node": 94470
+               },
+               {
+                "class": "android.widget.TextView",
+                "text": "无障碍功能 > 字幕偏好设置",
+                "desc": "无障碍功能, 字幕偏好设置",
+                "id": "com.google.android.settings.intelligence:id/breadcrumb",
+                "bounds": [
+                 63,
+                 673,
+                 507,
+                 734
+                ],
+                "node": 95431
+               },
+               {
+                "class": "android.widget.Switch",
+                "desc": "显示字幕",
+                "id": "android:id/switch_widget",
+                "state": "关闭",
+                "bounds": [
+                 901,
+                 599,
+                 1038,
+                 725
+                ],
+                "clickable": true,
+                "checkable": true,
+                "node": 97353
+               }
+              ]
+             },
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               776,
+               1080,
+               1004
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 98314,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "显示其他信息",
+                "id": "android:id/title",
+                "bounds": [
+                 63,
+                 818,
+                 381,
+                 901
+                ],
+                "node": 102158
+               },
+               {
+                "class": "android.widget.TextView",
+                "text": "显示和触控 > 屏保",
+                "desc": "显示和触控, 屏保",
+                "id": "com.google.android.settings.intelligence:id/breadcrumb",
+                "bounds": [
+                 63,
+                 901,
+                 359,
+                 962
+                ],
+                "node": 103119
+               },
+               {
+                "class": "android.widget.Switch",
+                "desc": "显示其他信息",
+                "id": "android:id/switch_widget",
+                "state": "开启",
+                "bounds": [
+                 901,
+                 827,
+                 1038,
+                 953
+                ],
+                "clickable": true,
+                "checkable": true,
+                "checked": true,
+                "node": 105041
+               }
+              ]
+             },
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               1004,
+               1080,
+               1232
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 106002,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "显示所有预览",
+                "id": "android:id/title",
+                "bounds": [
+                 63,
+                 1046,
+                 381,
+                 1129
+                ],
+                "node": 109846
+               },
+               {
+                "class": "android.widget.TextView",
+                "text": "信息",
+                "desc": "信息",
+                "id": "com.google.android.settings.intelligence:id/breadcrumb",
+                "bounds": [
+                 63,
+                 1129,
+                 137,
+                 1190
+                ],
+                "node": 111768
+               }
+              ]
+             },
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               1232,
+               1080,
+               1460
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 113690,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "显示输入状态",
+                "id": "android:id/title",
+                "bounds": [
+                 63,
+                 1274,
+                 381,
+                 1357
+                ],
+                "node": 117534
+               },
+               {
+                "class": "android.widget.TextView",
+                "text": "信息",
+                "desc": "信息",
+                "id": "com.google.android.settings.intelligence:id/breadcrumb",
+                "bounds": [
+                 63,
+                 1357,
+                 137,
+                 1418
+                ],
+                "node": 119456
+               }
+              ]
+             },
+             {
+              "class": "android.widget.LinearLayout",
+              "bounds": [
+               0,
+               1460,
+               1080,
+               1688
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 121378,
+              "children": [
+               {
+                "class": "android.widget.TextView",
+                "text": "显示大小和文字",
+                "id": "android:id/title",
+                "bounds": [
+                 63,
+                 1502,
+                 434,
+                 1585
+                ],
+                "node": 125222
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "root_ms": 15,
+   "walk_ms": 18,
+   "nodes": 27
+  }
+ ],
+ "nodes": 27,
+ "truncated": false,
+ "time": 1794312963350,
+ "took_ms": 35,
+ "windows_ms": 0
+}

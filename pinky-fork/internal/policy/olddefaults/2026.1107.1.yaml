@@ -1,0 +1,48 @@
+# Pinky policy rules.
+#
+# Every action an agent takes through Pinky is checked against the preset
+# below and these rules. When several rules match, the strictest wins: deny,
+# then ask, then allow. Among rules with the same decision, the first one
+# names the result, so list specific rules before general ones.
+#
+# preset (Settings > Safety > "When should agents ask you?"):
+#   1  payments, messages, deletions and other commits ask; so do calls,
+#      installs, links that leave the app and settings changes (recommended)
+#   2  only payments ask
+#   3  every action asks
+#   0  no preset: only the rules below
+#
+# match fields (all that are set must match; within a field, any value does):
+#   app:      package names, bundle ids or display names
+#   category: categories from the app table (finance, passwords, messaging,
+#             social, stores, browsers, phone, settings, system, blocked); add
+#             apps to them in apps.yaml next to this file
+#   action:   commit, payment, send_message, install_app, open_url, call,
+#             change_setting, or an operation: tap, type, swipe, key, launch
+#   label:    case-insensitive text in the label of the element acted on
+#
+# A deny rule that names only apps or categories blocks those apps: the agent
+# does not even get their screen, and their notifications are hidden.
+#
+# Built in and not editable here: typing into password and one-time-code
+# fields is always denied (rule: credentials), and apps you block in Settings
+# (the "blocked" category in apps.yaml) are denied (rule: Blocked by you).
+
+preset: 1
+
+# Read-only mode: the agent may observe, launch apps, tap, scroll and type into
+# search fields; anything that would ask is denied.
+read_only: false
+read_only_devices: []
+
+# Mask digit codes (such as one-time codes) in notifications.
+mask_codes: true
+
+rules:
+  - name: Finance apps
+    match: { category: finance }
+    decision: deny
+
+  - name: Password managers
+    match: { category: passwords }
+    decision: deny

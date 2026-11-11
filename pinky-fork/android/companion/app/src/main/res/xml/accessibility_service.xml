@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  No touch exploration, no key filtering and no gestures: the service only
+  reads windows and sets text, so the phone behaves exactly as before while
+  it is on. Not an accessibility tool, so views marked
+  accessibilityDataSensitive stay hidden from it.
+
+  flagInputMethodEditor (Android 13+) hands the service the InputConnection
+  of the field the keyboard is connected to, beside the keyboard, which
+  stays as it is: set_text commits text through it into views that refuse
+  ACTION_SET_TEXT (TextSetter).
+-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeAllMask"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagRetrieveInteractiveWindows|flagReportViewIds|flagInputMethodEditor"
+    android:canPerformGestures="false"
+    android:canRequestFilterKeyEvents="false"
+    android:canRequestTouchExplorationMode="false"
+    android:canRetrieveWindowContent="true"
+    android:description="@string/service_description"
+    android:isAccessibilityTool="false"
+    android:notificationTimeout="0"
+    android:settingsActivity="app.pinky.companion.MainActivity" />

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Prototype only, English only: not shipped and not in Pinky's catalogs. -->
+<resources>
+    <string name="standalone_app_name">Pinky Standalone</string>
+    <string name="standalone_service_label">Pinky Standalone</string>
+    <string name="standalone_service_description">Prototype: lets Pinky on this phone read the screen and tap, swipe and type in other apps for a task you give it, while you watch, approve and can stop it. Nothing leaves the phone except what the task sends to the AI model you choose.</string>
+    <!-- Overlays: the Working pill and the approval card. -->
+    <string name="standalone_working">Working · %1$s</string>
+    <string name="standalone_starting">Starting</string>
+    <string name="standalone_waiting">Waiting for you</string>
+    <string name="standalone_stop">Stop</string>
+    <string name="standalone_close">Close</string>
+    <string name="standalone_ended_stopped">Stopped</string>
+    <string name="standalone_ended_done">Done · %1$s</string>
+    <string name="standalone_ended_other">Ended · %1$s</string>
+    <string name="standalone_asks">Pinky asks</string>
+    <string name="standalone_rule">Rule: %1$s</string>
+    <string name="standalone_deadline">No answer in %1$d s denies it</string>
+    <string name="standalone_deny">Deny</string>
+    <string name="standalone_allow_task">Allow for task</string>
+    <string name="standalone_allow_once">Allow once</string>
+    <string name="standalone_decline">Decline</string>
+    <string name="standalone_hand_back">Done, hand back</string>
+    <!-- Pinky's screen. -->
+    <string name="standalone_turn_on">Open Accessibility settings</string>
+    <string name="standalone_ready">Ready on %1$s</string>
+    <string name="standalone_not_ready">Pinky Standalone is off: turn it on in Accessibility settings.</string>
+    <string name="standalone_core_down">Pinky\'s core is not running (%1$s). Turn on Pinky Standalone in Accessibility settings.</string>
+    <string name="standalone_task">Task</string>
+    <string name="standalone_task_hint">What should Pinky do on this phone?</string>
+    <string name="standalone_model">Model</string>
+    <string name="standalone_anthropic">Anthropic</string>
+    <string name="standalone_openai">OpenAI-compatible</string>
+    <string name="standalone_model_hint">Model (empty: claude-opus-5-5)</string>
+    <string name="standalone_base_url_hint">Address (empty: the provider\'s own)</string>
+    <string name="standalone_key_hint">API key (kept in memory only)</string>
+    <string name="standalone_ask_before">Ask me before</string>
+    <string name="standalone_preset_payments">Payments</string>
+    <string name="standalone_preset_commits">Payments, messages, commits and settings changes</string>
+    <string name="standalone_preset_every">Every action</string>
+    <string name="standalone_start">Start</string>
+    <string name="standalone_new_task">New task</string>
+    <string name="standalone_need_task">Type a task first.</string>
+    <string name="standalone_need_key">Type the model\'s API key first.</string>
+    <string name="standalone_line_waiting">Waiting for you: %1$s</string>
+    <string name="standalone_line_running">Working · %1$d steps · %2$d s · $%3$.2f</string>
+    <string name="standalone_line_ended">%1$s: %2$s (%3$d steps · %4$d s · $%5$.2f)</string>
+</resources>

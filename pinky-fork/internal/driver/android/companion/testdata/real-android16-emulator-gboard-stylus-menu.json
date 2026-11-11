@@ -1,0 +1,242 @@
+{
+ "display": {
+  "id": 0,
+  "width": 1080,
+  "height": 2400,
+  "density_dpi": 420,
+  "rotation": 0
+ },
+ "locked": false,
+ "secure_locked": false,
+ "windows": [
+  {
+   "id": 180,
+   "type": "system",
+   "layer": 2,
+   "bounds": [
+    0,
+    0,
+    1080,
+    128
+   ],
+   "root_ms": 0,
+   "walk_ms": 0,
+   "nodes": 0
+  },
+  {
+   "id": 178,
+   "type": "input_method",
+   "layer": 1,
+   "title": "Gboard",
+   "bounds": [
+    0,
+    128,
+    1080,
+    2400
+   ],
+   "package": "com.google.android.inputmethod.latin",
+   "app": "Gboard",
+   "root": {
+    "class": "android.widget.FrameLayout",
+    "bounds": [
+     0,
+     128,
+     1080,
+     2400
+    ],
+    "node": -2147455632,
+    "children": [
+     {
+      "class": "android.widget.FrameLayout",
+      "bounds": [
+       0,
+       128,
+       1080,
+       2400
+      ],
+      "node": 3939286,
+      "children": [
+       {
+        "class": "android.support.v7.widget.RecyclerView",
+        "bounds": [
+         202,
+         764,
+         885,
+         1586
+        ],
+        "node": 3941208,
+        "children": [
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "Settings",
+          "bounds": [
+           202,
+           764,
+           885,
+           901
+          ],
+          "clickable": true,
+          "node": 3942169
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "Try handwriting demo",
+          "bounds": [
+           202,
+           901,
+           885,
+           1038
+          ],
+          "clickable": true,
+          "node": 3951779
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "Show clipboard",
+          "bounds": [
+           202,
+           1038,
+           885,
+           1175
+          ],
+          "clickable": true,
+          "node": 3961389
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "Show translate",
+          "bounds": [
+           202,
+           1175,
+           885,
+           1312
+          ],
+          "clickable": true,
+          "node": 3970999
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "Show on-screen keyboard",
+          "bounds": [
+           202,
+           1312,
+           885,
+           1449
+          ],
+          "clickable": true,
+          "node": 3980609
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "Switch to horizontal toolbar",
+          "bounds": [
+           202,
+           1449,
+           885,
+           1586
+          ],
+          "clickable": true,
+          "node": 3990219
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "class": "android.widget.FrameLayout",
+      "desc": "Use voice typing",
+      "id": "com.google.android.inputmethod.latin:id/0_resource_name_obfuscated",
+      "bounds": [
+       32,
+       906,
+       158,
+       1032
+      ],
+      "clickable": true,
+      "focusable": true,
+      "node": 3548159
+     },
+     {
+      "class": "android.widget.FrameLayout",
+      "desc": "Delete",
+      "bounds": [
+       32,
+       1042,
+       158,
+       1168
+      ],
+      "clickable": true,
+      "long_clickable": true,
+      "focusable": true,
+      "node": 3933520
+     },
+     {
+      "class": "android.widget.FrameLayout",
+      "desc": "Search",
+      "bounds": [
+       32,
+       1178,
+       158,
+       1304
+      ],
+      "clickable": true,
+      "focusable": true,
+      "node": 3924871
+     },
+     {
+      "class": "android.widget.FrameLayout",
+      "desc": "Show emoji keyboard",
+      "bounds": [
+       32,
+       1314,
+       158,
+       1440
+      ],
+      "clickable": true,
+      "focusable": true,
+      "node": 3927754
+     },
+     {
+      "class": "android.widget.FrameLayout",
+      "desc": "More stylus options",
+      "id": "com.google.android.inputmethod.latin:id/0_resource_name_obfuscated",
+      "bounds": [
+       32,
+       1450,
+       158,
+       1576
+      ],
+      "clickable": true,
+      "focusable": true,
+      "node": 3930637
+     }
+    ]
+   },
+   "root_ms": 0,
+   "walk_ms": 3,
+   "nodes": 14
+  },
+  {
+   "id": 199,
+   "type": "application",
+   "layer": 0,
+   "title": "Settings Services",
+   "bounds": [
+    0,
+    0,
+    1080,
+    2400
+   ],
+   "active": true,
+   "focused": true,
+   "package": "com.google.android.settings.intelligence",
+   "root_ms": 0,
+   "walk_ms": 0,
+   "nodes": 0
+  }
+ ],
+ "windows_ms": 0,
+ "nodes": 14,
+ "time": 1794058677317,
+ "took_ms": 5
+}

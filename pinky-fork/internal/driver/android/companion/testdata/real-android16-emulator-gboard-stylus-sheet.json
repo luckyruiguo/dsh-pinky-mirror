@@ -1,0 +1,277 @@
+{
+ "display": {
+  "id": 0,
+  "width": 1080,
+  "height": 2400,
+  "density_dpi": 420,
+  "rotation": 0
+ },
+ "locked": false,
+ "secure_locked": false,
+ "windows": [
+  {
+   "id": 180,
+   "type": "system",
+   "layer": 2,
+   "bounds": [
+    0,
+    0,
+    1080,
+    128
+   ],
+   "root_ms": 0,
+   "walk_ms": 0,
+   "nodes": 0
+  },
+  {
+   "id": 178,
+   "type": "input_method",
+   "layer": 1,
+   "title": "Gboard",
+   "bounds": [
+    0,
+    128,
+    1080,
+    2400
+   ],
+   "package": "com.google.android.inputmethod.latin",
+   "app": "Gboard",
+   "root": {
+    "class": "android.widget.FrameLayout",
+    "bounds": [
+     0,
+     128,
+     1080,
+     2400
+    ],
+    "node": -2147455632,
+    "children": [
+     {
+      "class": "android.view.ViewGroup",
+      "id": "com.google.android.inputmethod.latin:id/0_resource_name_obfuscated",
+      "bounds": [
+       0,
+       128,
+       1080,
+       2400
+      ],
+      "node": 4001751,
+      "children": [
+       {
+        "class": "android.widget.FrameLayout",
+        "id": "com.google.android.inputmethod.latin:id/0_resource_name_obfuscated",
+        "bounds": [
+         0,
+         1090,
+         1080,
+         2400
+        ],
+        "node": 4003673,
+        "children": [
+         {
+          "class": "android.widget.ScrollView",
+          "bounds": [
+           0,
+           1090,
+           1080,
+           2400
+          ],
+          "focusable": true,
+          "node": 4004634,
+          "children": [
+           {
+            "class": "android.widget.TextView",
+            "text": "Try out your stylus",
+            "desc": "Try out your stylus",
+            "bounds": [
+             279,
+             1206,
+             801,
+             1298
+            ],
+            "node": 4006556
+           },
+           {
+            "class": "android.widget.HorizontalScrollView",
+            "bounds": [
+             105,
+             1340,
+             975,
+             1498
+            ],
+            "scrollable": true,
+            "focusable": true,
+            "node": 4007517,
+            "children": [
+             {
+              "class": "android.widget.Button",
+              "text": "Write",
+              "desc": "Write",
+              "id": "com.google.android.inputmethod.latin:id/0_resource_name_obfuscated",
+              "bounds": [
+               105,
+               1356,
+               315,
+               1482
+              ],
+              "clickable": true,
+              "focusable": true,
+              "disabled": true,
+              "node": 4009439
+             },
+             {
+              "class": "android.widget.Button",
+              "text": "Delete",
+              "desc": "Delete",
+              "id": "com.google.android.inputmethod.latin:id/0_resource_name_obfuscated",
+              "bounds": [
+               337,
+               1356,
+               547,
+               1482
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 4010400
+             },
+             {
+              "class": "android.widget.Button",
+              "text": "Select",
+              "desc": "Select",
+              "id": "com.google.android.inputmethod.latin:id/0_resource_name_obfuscated",
+              "bounds": [
+               569,
+               1356,
+               779,
+               1482
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 4011361
+             },
+             {
+              "class": "android.widget.Button",
+              "text": "Insert",
+              "desc": "Insert",
+              "id": "com.google.android.inputmethod.latin:id/0_resource_name_obfuscated",
+              "bounds": [
+               801,
+               1356,
+               975,
+               1482
+              ],
+              "clickable": true,
+              "focusable": true,
+              "node": 4012322
+             }
+            ]
+           },
+           {
+            "class": "android.widget.TextView",
+            "text": "Use your stylus and your handwriting is automatically converted to text",
+            "id": "com.google.android.inputmethod.latin:id/0_resource_name_obfuscated",
+            "bounds": [
+             105,
+             1540,
+             975,
+             1652
+            ],
+            "node": 4015205
+           },
+           {
+            "class": "android.widget.EditText",
+            "id": "com.google.android.inputmethod.latin:id/0_resource_name_obfuscated",
+            "bounds": [
+             168,
+             1825,
+             912,
+             1979
+            ],
+            "clickable": true,
+            "long_clickable": true,
+            "editable": true,
+            "focusable": true,
+            "focused": true,
+            "node": 4019049
+           },
+           {
+            "class": "android.widget.Button",
+            "text": "Reset",
+            "desc": "Reset",
+            "id": "android:id/button1",
+            "bounds": [
+             105,
+             2211,
+             336,
+             2337
+            ],
+            "clickable": true,
+            "focusable": true,
+            "node": 4028659
+           },
+           {
+            "class": "android.widget.Button",
+            "text": "Cancel",
+            "desc": "Cancel",
+            "id": "android:id/closeButton",
+            "bounds": [
+             476,
+             2211,
+             723,
+             2337
+            ],
+            "clickable": true,
+            "focusable": true,
+            "node": 4030581
+           },
+           {
+            "class": "android.widget.Button",
+            "text": "Next",
+            "desc": "Next",
+            "id": "android:id/button2",
+            "bounds": [
+             744,
+             2211,
+             975,
+             2337
+            ],
+            "clickable": true,
+            "focusable": true,
+            "node": 4031542
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   "root_ms": 16,
+   "walk_ms": 39,
+   "nodes": 15
+  },
+  {
+   "id": 199,
+   "type": "application",
+   "layer": 0,
+   "title": "Settings Services",
+   "bounds": [
+    0,
+    0,
+    1080,
+    2400
+   ],
+   "active": true,
+   "focused": true,
+   "package": "com.google.android.settings.intelligence",
+   "root_ms": 3,
+   "walk_ms": 0,
+   "nodes": 0
+  }
+ ],
+ "windows_ms": 0,
+ "nodes": 15,
+ "time": 1794058681667,
+ "took_ms": 59
+}

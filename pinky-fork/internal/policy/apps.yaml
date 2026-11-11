@@ -1,0 +1,490 @@
+# Bundled app categories. Edit apps.yaml in the config directory to add or
+# remove apps; this table keeps getting updates with Pinky.
+#
+# ids: Android package names and iOS bundle ids; a trailing * matches a prefix.
+# names: display names, matched without case, for backends that cannot read ids.
+
+finance:
+  ids:
+    # Payments and wallets
+    - com.paypal.android.p2pmobile
+    - com.yourcompany.PPClient          # PayPal (iOS)
+    - com.venmo
+    - net.kortina.labs.Venmo
+    - com.squareup.cash
+    - com.google.android.apps.walletnfcrel
+    - com.google.android.apps.nbu.paisa.user   # Google Pay (India)
+    - com.apple.Passbook
+    - com.samsung.android.spay
+    - com.samsung.android.samsungpay.gear
+    - com.eg.android.AlipayGphone
+    - com.alipay.iphoneclient
+    - com.unionpay
+    - com.unionpay.chsp
+    - jp.ne.paypay.android.app
+    - jp.ne.paypay.iosapp
+    - com.phonepe.app
+    - net.one97.paytm
+    - com.klarna.android
+    - com.klarna.klarna
+    - com.afterpay.caportal
+    - com.zellepay.zelle
+    - com.transferwise.android
+    - com.transferwise.Transferwise
+    - com.revolut.revolut
+    - com.wise.android
+    # Banks
+    - com.chase.sig.android
+    - com.chase
+    - com.infonow.bofa
+    - com.bankofamerica.BofA
+    - com.wf.wellsfargomobile
+    - com.wellsfargo.net.mobilebanking
+    - com.citi.citimobile
+    - com.citigroup.citimobile
+    - com.konylabs.capitalone
+    - com.capitalone.mobile
+    - com.americanexpress.android.acctsvcs.us
+    - com.americanexpress.amelia
+    - com.discoverfinancial.mobile
+    - com.usbank.mobilebanking
+    - com.pnc.ecommerce.mobile
+    - com.td
+    - com.ally.MobileBanking
+    - com.sofi.mobile
+    - com.chime.android
+    - com.onedebit.chime
+    - uk.co.hsbc.hsbcukmobilebanking
+    - com.hsbc.*
+    - com.barclays.android.barclaysmobilebanking
+    - com.grppl.android.shell.CMBlloydsTSB73
+    - com.rbs.mobile.android.natwest
+    - co.uk.getmondo
+    - com.starlingbank.android
+    - de.number26.android
+    - com.db.pwcc.dbmobile
+    - de.commerzbanking.mobil
+    - com.ing.*
+    - com.bnpparibas.*
+    - com.santander.*
+    - es.bbva.*
+    # Chinese banks: Android package, then iOS bundle id where they differ
+    # (checked in Xiaomi's and Tencent's app stores and Apple's lookup)
+    - com.icbc
+    - com.icbc.iphoneclient
+    - com.chinamworld.main
+    - com.ccb.ccbDemo                   # China Construction Bank (iOS)
+    - com.chinamworld.bocmbci
+    - com.boc.BOCMBCI                   # Bank of China (iOS)
+    - com.android.bankabc
+    - com.bankabc.iphonerelease         # Agricultural Bank of China (iOS)
+    - com.bankcomm.Bankcomm
+    - cmb.pb
+    - com.cmbchina.*                    # China Merchants Bank, and its 掌上生活
+    - com.ecitic.bank.mobile
+    - com.citic.mobile                  # China CITIC Bank (iOS)
+    - com.cebbank.mobile.cemb
+    - com.cebbank.ebank                 # China Everbright Bank (iOS)
+    - cn.com.spdb.mobilebank.per        # Shanghai Pudong Development Bank
+    - com.spdb.retail.bank
+    - cn.com.cmbc.newmbank
+    - com.cmbc.cn.iphone                # China Minsheng Bank (iOS)
+    - com.cib.cibmb                     # Industrial Bank
+    - com.hxb.mobile.client             # Hua Xia Bank
+    - com.cgbchina.xpt                  # China Guangfa Bank
+    - com.gdb.mobilegdb
+    - com.pingan.paces.ccms
+    - com.pingan.creditcard             # 平安口袋银行 (iOS)
+    - com.webank.wemoney
+    - com.mybank.android.phone
+    - com.yitong.mbank.psbc
+    - com.psbc.mobilebank               # Postal Savings Bank of China (iOS)
+    # Chinese banks' credit card apps, whose names say no 银行
+    - com.bankcomm.maidanba             # 买单吧, Bank of Communications
+    - com.cs_credit_bank                # 发现精彩, China Guangfa Bank
+    - com.cgb.creditcard.iphone
+    - com.citiccard.mobilebank          # 动卡空间, China CITIC Bank
+    - com.citicbank.creditspace
+    - com.spdbccc.app                   # 浦大喜奔, Shanghai Pudong Development Bank
+    - spdbccc.com.cn
+    - com.cmbc.cc.mbank                 # 全民生活, China Minsheng Bank
+    - com.cmbc.mobilePhone
+    - com.ebank.creditcard              # 阳光惠生活, China Everbright Bank
+    - com.cebbank.xyk
+    - com.cib.xyk                       # 兴业生活, Industrial Bank
+    - com.HuaXiaBank.HuaCard            # 华彩生活, Hua Xia Bank
+    - com.ccb.longjiLife                # 建行生活, China Construction Bank
+    - com.icbc.elife                    # 工银e生活, ICBC
+    - com.yitong.mbank.psbc.creditcard  # 邮储信用卡, Postal Savings Bank of China
+    - com.psbc.creditcard
+    - jp.co.smbc.*
+    - jp.co.mufg.*
+    - jp.co.rakuten_bank.*
+    - com.kakaobank.channel
+    - viva.republica.toss
+    - com.dbs.*                         # DBS digibank, digibank by POSB, DBS PayLah!
+    - sg.trust                          # Trust Bank
+    - com.ocbc.*
+    - com.uob.*
+    # Brokerages and crypto
+    - com.robinhood.android
+    - com.robinhood.release.Robinhood
+    - com.fidelity.android
+    - com.schwab.mobile
+    - com.etrade.mobilepro.activity
+    - org.dayup.stocks
+    - atws.app
+    - com.ibkr.*
+    - cn.futu.trader
+    - com.tigerbrokers.stock
+    - com.coinbase.android
+    - com.coinbase.Coinbase
+    - org.toshi
+    - com.binance.dev
+    - com.czzhao.binance
+    - com.okinc.okex.gp
+    - com.kraken.trade
+    - com.krakenfutures
+    - io.metamask
+    - io.metamask.MetaMask
+    - com.wallet.crypto.trustapp
+    - com.sixdays.trust
+    - app.phantom
+    - com.bybit.app
+    - com.kucoin.wallet
+    - com.ledger.live
+    - io.exodus.wallet
+    - com.okex.OKExAppstoreFull         # OKX (iOS)
+    - com.vilcsak.bitcoin2              # Coinbase (iOS)
+    - org.toshi.distribution            # Coinbase Wallet (iOS)
+    - co.mona.android                   # Crypto.com
+    - co.mona.Monaco
+    - com.kubi.kucoin
+    - fi.ether.cashapp                  # ether.fi
+    - app.ethenapay.co                  # Ethena
+    - to.plasma.one.application         # Plasma One
+    - ag.jup.jupiter.ios                # Jupiter
+    - me.rainbow
+    - com.uniswap.mobile
+    - io.gnosis.safe
+    # Remittance
+    - com.panda.exchangerate            # Panda Remit
+    - com.westernunion.android.mtapp
+  names:
+    - PayPal
+    - Venmo
+    - Cash App
+    - Wallet
+    - Google Wallet
+    - Samsung Wallet
+    - Alipay
+    - 支付宝
+    - 云闪付
+    - 买单吧
+    - 发现精彩
+    - 动卡空间
+    - 掌上生活
+    - 浦大喜奔
+    - 全民生活
+    - 阳光惠生活
+    - 兴业生活
+    - 华彩生活
+    - 建行生活
+    - 工银e生活
+    - PayPay
+    - Wise
+    - Revolut
+    - Chase
+    - Bank of America
+    - Wells Fargo
+    - Robinhood
+    - Coinbase
+    - Binance
+    - MetaMask
+    - digibank
+    - DBS digibank
+    - PayLah!
+    - DBS PayLah!
+    - Trust Bank
+    - OKX
+    - Crypto.com
+    - ether.fi
+    - Ethena
+    - Plasma One
+    - Panda Remit
+
+passwords:
+  ids:
+    - com.onepassword.android
+    - com.agilebits.onepassword
+    - com.1password.1password
+    - com.x8bit.bitwarden
+    - com.8bit.bitwarden
+    - com.lastpass.lpandroid
+    - com.lastpass.ilastpass
+    - com.dashlane
+    - com.dashlane.dashlanephonefinal
+    - com.callpod.android_apps.keeper
+    - com.keeper.keeper
+    - com.apple.Passwords
+    - keepass2android.keepass2android
+    - com.kunzisoft.keepass.free
+    - com.authy.authy
+    - com.google.android.apps.authenticator2
+    - com.google.Authenticator
+    - com.azure.authenticator
+    - com.microsoft.azureauthenticator
+    - proton.android.pass
+    - me.proton.pass.ios
+    - sg.ndi.sp                          # Singpass: national digital identity, signs in to banks
+  names:
+    - 1Password
+    - Bitwarden
+    - LastPass
+    - Passwords
+    - Authenticator
+    - Authy
+    - Singpass
+
+messaging:
+  ids:
+    - com.google.android.apps.messaging
+    - com.android.mms
+    - com.samsung.android.messaging
+    - com.apple.MobileSMS
+    - com.whatsapp
+    - com.whatsapp.w4b
+    - net.whatsapp.WhatsApp
+    - net.whatsapp.WhatsAppSMB
+    - org.telegram.messenger
+    - ph.telegra.Telegraph
+    - org.thoughtcrime.securesms
+    - org.whispersystems.signal
+    - com.facebook.orca
+    - com.facebook.Messenger
+    - com.tencent.mm
+    - com.tencent.xin
+    - com.tencent.mobileqq
+    - com.tencent.mqq
+    - com.tencent.wework
+    - com.tencent.ww
+    - jp.naver.line.android
+    - jp.naver.line
+    - com.kakao.talk
+    - com.iwilab.KakaoTalk
+    - com.viber.voip
+    - com.discord
+    - com.hammerandchisel.discord
+    - com.Slack
+    - com.tinyspeck.chatlyio
+    - com.microsoft.teams
+    - com.microsoft.skype.teams
+    - com.skype.raider
+    - com.alibaba.android.rimet
+    - com.laiwang.DingTalk
+    - com.ss.android.lark
+    - com.bytedance.ee.lark
+    - im.vector.app
+    - chat.rocket.android
+    - com.google.android.gm
+    - com.google.Gmail
+    - com.apple.mobilemail
+    - com.microsoft.office.outlook
+    - com.microsoft.Office.Outlook
+    - ch.protonmail.android
+    - ch.protonmail.protonmail
+    - com.netease.mail
+    - com.tencent.androidqqmail
+    - com.yahoo.mobile.client.android.mail
+    - com.readdle.spark
+  names:
+    - Messages
+    - WhatsApp
+    - Telegram
+    - Signal
+    - Messenger
+    - WeChat
+    - 微信
+    - QQ
+    - LINE
+    - KakaoTalk
+    - Discord
+    - Slack
+    - Teams
+    - Gmail
+    - Mail
+    - Outlook
+
+social:
+  ids:
+    - com.twitter.android
+    - com.atebits.Tweetie2
+    - com.instagram.android
+    - com.burbn.instagram
+    - com.instagram.barcelona
+    - com.burbn.barcelona
+    - com.facebook.katana
+    - com.facebook.Facebook
+    - com.reddit.frontpage
+    - com.reddit.Reddit
+    - com.linkedin.android
+    - com.linkedin.LinkedIn
+    - com.zhiliaoapp.musically
+    - com.ss.android.ugc.aweme
+    - com.ss.iphone.ugc.Aweme
+    - com.ss.android.ugc.trill
+    - com.sina.weibo
+    - com.xingin.xhs
+    - com.xingin.discover
+    - com.zhihu.android
+    - com.zhihu.ios
+    - tv.danmaku.bili
+    - com.douban.frodo
+    - com.snapchat.android
+    - com.toyopagroup.picaboo
+    - com.pinterest
+    - pinterest
+    - com.tumblr
+    - xyz.blueskyweb.app
+    - org.joinmastodon.android
+    - org.joinmastodon.app
+    - com.google.android.youtube
+    - com.google.ios.youtube
+  names:
+    - X
+    - Twitter
+    - Instagram
+    - Threads
+    - Facebook
+    - Reddit
+    - LinkedIn
+    - TikTok
+    - 抖音
+    - 微博
+    - 小红书
+    - 知乎
+    - Bluesky
+    - Mastodon
+
+stores:
+  ids:
+    - com.android.vending
+    - com.apple.AppStore
+    - com.android.packageinstaller
+    - com.google.android.packageinstaller
+    - com.samsung.android.packageinstaller
+    - com.miui.packageinstaller
+    - com.sec.android.app.samsungapps
+    - com.xiaomi.market
+    - com.huawei.appmarket
+    - com.oppo.market
+    - com.heytap.market
+    - com.bbk.appstore
+    - com.tencent.android.qqdownloader
+    - com.wandoujia.phoenix2
+    - com.amazon.venezia
+    - org.fdroid.fdroid
+    - com.aurora.store
+    - com.apple.TestFlight
+  names:
+    - Play Store
+    - Google Play Store
+    - App Store
+    - Galaxy Store
+    - TestFlight
+
+browsers:
+  ids:
+    - com.android.chrome
+    - com.chrome.beta
+    - com.google.chrome.ios
+    - com.apple.mobilesafari
+    - org.mozilla.firefox
+    - org.mozilla.fenix
+    - org.mozilla.ios.Firefox
+    - com.microsoft.emmx
+    - com.microsoft.msedge
+    - com.brave.browser
+    - com.brave.ios.browser
+    - com.opera.browser
+    - com.opera.mini.native
+    - com.vivaldi.browser
+    - com.duckduckgo.mobile.android
+    - com.duckduckgo.mobile.ios
+    - com.sec.android.app.sbrowser
+    - com.kiwibrowser.browser
+    - com.mi.globalbrowser
+    - com.android.browser
+    - com.UCMobile
+    - com.ucweb.iphone.lowversion
+    - com.tencent.mtt
+    - com.quark.browser
+    - org.lineageos.jelly
+  names:
+    - Chrome
+    - Safari
+    - Firefox
+    - Edge
+    - Brave
+
+phone:
+  ids:
+    - com.google.android.dialer
+    - com.android.dialer
+    - com.samsung.android.dialer
+    - com.samsung.android.incallui
+    - com.android.incallui
+    - com.android.server.telecom
+    - com.android.contacts
+    - com.apple.mobilephone
+    - com.apple.InCallService
+    - com.apple.facetime
+  names:
+    - Phone
+    - FaceTime
+
+settings:
+  ids:
+    - com.android.settings
+    - com.android.permissioncontroller
+    - com.google.android.permissioncontroller
+    - com.google.android.gms
+    - com.miui.securitycenter
+    - com.samsung.android.settings
+    - com.apple.Preferences
+  names:
+    - Settings
+
+system:
+  ids:
+    - com.android.systemui
+    - com.android.launcher
+    - com.android.launcher2
+    - com.android.launcher3
+    - com.google.android.apps.nexuslauncher
+    - com.sec.android.app.launcher
+    - com.miui.home
+    - com.huawei.android.launcher
+    - com.oppo.launcher
+    - com.bbk.launcher2
+    - net.oneplus.launcher
+    - com.teslacoilsw.launcher
+    - com.lineageos.trebuchet
+    - app.lawnchair*                       # Lawnchair
+    - bitpit.launcher                      # Niagara
+    - ginlemon.flowerfree                  # Smart Launcher
+    - com.microsoft.launcher
+    - com.actionlauncher.playstore
+    - com.mi.android.globallauncher        # POCO Launcher
+    - projekt.launcher                     # Hyperion
+    - de.mm20.launcher2                    # Kvaesitso
+    - com.motorola.launcher3
+    - com.nothing.launcher
+    - com.asus.launcher
+    - com.sonymobile.home
+    - com.hihonor.android.launcher
+    - com.transsion.hilauncher
+    - com.apple.springboard
+  names:
+    - Home screen
+    - SpringBoard

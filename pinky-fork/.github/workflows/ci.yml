@@ -1,0 +1,163 @@
+name: CI
+
+# Builds, vets and tests Pinky on Linux and Windows (macOS builds and vets
+# only: its minutes cost ten times as much), and smoke-runs the gateway
+# with fake phones on each. On Linux the desktop window also runs under
+# Xvfb and is captured through MyGo's automation socket.
+#
+# It runs for main, pull requests, by hand, and for the platform session's
+# branches; other branches run it through a pull request, so their many
+# pushes cost no minutes.
+on:
+  push:
+    branches: [main, "claude/platform-*"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  CGO_ENABLED: "0"
+  # FFmpeg 9's shared libraries and the ffmpeg command for the decoder
+  # tests: FFmpeg-Builds' (formerly BtbN's) GPL builds, whose x264 and x265
+  # make the test streams. They stay on the runner; Pinky.app ships its own
+  # LGPL build (make ffmpeg). The archive is kept in the Actions cache and
+  # fetched only when the cache has none, through GitHub's API (gh), since
+  # the releases' download links have answered 504 for hours at a time.
+  # Change the cache key to take a newer build.
+  FFMPEG_REPO: FFmpeg-Builds/FFmpeg-Builds
+
+jobs:
+  check:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: Linux, os: ubuntu-latest, test: true, ffmpeg: ffmpeg-n9.0-latest-linux64-gpl-shared-9.0.tar.xz }
+          - { name: Windows, os: windows-latest, test: true, ffmpeg: ffmpeg-n9.0-latest-win64-gpl-shared-9.0.zip }
+          - { name: macOS, os: macos-latest, test: false }
+    env:
+      FFMPEG: ${{ matrix.ffmpeg }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Install Linux packages
+        if: runner.os == 'Linux'
+        run: |
+          # dbus: the private session bus of the keyring tests; the rest:
+          # the window under Xvfb (GTK 3, EGL with Mesa's software GL).
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq --no-install-recommends dbus dbus-x11 xvfb xauth libegl1 libegl-mesa0 libgl1-mesa-dri libepoxy0 >/dev/null
+          sudo apt-get install -y -qq --no-install-recommends libgtk-3-0t64 >/dev/null || sudo apt-get install -y -qq --no-install-recommends libgtk-3-0 >/dev/null
+
+      - name: Restore FFmpeg 9 from the cache
+        id: ffmpeg
+        if: matrix.ffmpeg
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ runner.temp }}/ffmpeg-archive
+          key: ci-${{ matrix.ffmpeg }}
+
+      - name: Download FFmpeg 9
+        if: matrix.ffmpeg && steps.ffmpeg.outputs.cache-hit != 'true'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # For up to ten minutes: FFmpeg-Builds deletes its latest release
+          # and makes it again with each new build, so it is missing while
+          # the builds upload, a few minutes.
+          for try in {1..20}; do
+            gh release download latest --repo "$FFMPEG_REPO" --pattern "$FFMPEG" --dir "$RUNNER_TEMP/ffmpeg-archive" --clobber && exit 0
+            sleep 30
+          done
+          exit 1
+
+      # Right away, so that a run whose tests fail keeps it too.
+      - name: Keep FFmpeg 9 in the cache
+        if: matrix.ffmpeg && steps.ffmpeg.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: ${{ runner.temp }}/ffmpeg-archive
+          key: ci-${{ matrix.ffmpeg }}
+
+      - name: Install FFmpeg 9 (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          mkdir -p "$RUNNER_TEMP/ffmpeg"
+          tar -xJf "$RUNNER_TEMP/ffmpeg-archive/$FFMPEG" -C "$RUNNER_TEMP/ffmpeg" --strip-components=1
+          echo "PINKY_FFMPEG_DIR=$RUNNER_TEMP/ffmpeg/lib" >> "$GITHUB_ENV"
+          echo "$RUNNER_TEMP/ffmpeg/bin" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/ffmpeg/bin/ffmpeg" -hide_banner -version | head -1
+
+      - name: Install FFmpeg 9 (Windows)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          $ProgressPreference = 'SilentlyContinue'
+          Expand-Archive "$env:RUNNER_TEMP\ffmpeg-archive\$env:FFMPEG" -DestinationPath "$env:RUNNER_TEMP\ffmpeg"
+          $bin = (Get-ChildItem "$env:RUNNER_TEMP\ffmpeg" -Directory | Select-Object -First 1).FullName + "\bin"
+          "PINKY_FFMPEG_DIR=$bin" | Out-File -Append -Encoding utf8 $env:GITHUB_ENV
+          $bin | Out-File -Append -Encoding utf8 $env:GITHUB_PATH
+          & "$bin\ffmpeg.exe" -hide_banner -version | Select-Object -First 1
+
+      - name: Build
+        run: go build ./...
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: Test
+        if: matrix.test
+        shell: bash
+        run: |
+          go test ./...
+          # What the decoder, keyring and OCR tests did, rather than only "ok".
+          go test -count=1 -v -run 'TestDecodeTestStream|TestSecretService|TestCredential|TestHello|TestRecognize|TestWindowsSetup' ./internal/video/ ./internal/secret/ ./internal/ocr/ | grep -E -e '--- |video_test.go|Windows Hello|ocr_test.go|winrt_windows_test.go'
+
+      - name: Smoke run with fake phones
+        shell: bash
+        run: scripts/smoke.sh build/smoke
+
+      - name: Package for Linux and Windows
+        if: runner.os == 'Linux'
+        run: go tool mygo build -platform linux/amd64,windows/amd64 -skip-installer -o "$RUNNER_TEMP/packages" cmd/pinky
+
+      - name: Window under Xvfb
+        if: runner.os == 'Linux'
+        run: |
+          mkdir -p build/e2e
+          go build -tags e2e -o build/e2e/pinky ./cmd/pinky
+          export PINKY_HOME=build/e2e/h MYGO_AUTOMATION="$PWD/build/e2e/ui.sock"
+          xvfb-run -a -s "-screen 0 1440x900x24" dbus-launch --exit-with-session build/e2e/pinky --fake > build/e2e/app.log 2>&1 &
+          app=$!
+          status=0
+          go run ./scripts/uicapture -socket "$MYGO_AUTOMATION" -out build/e2e -expect "Pixel 9 (fake)" -timeout 90s || status=$?
+          kill $app 2>/dev/null || true
+          pkill -f "build/e2e/pinky --fake" || true
+          echo "--- app log"; tail -40 build/e2e/app.log
+          exit $status
+
+      - name: Keep the logs and captures
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ci-${{ matrix.name }}
+          path: |
+            build/smoke/*.log
+            build/smoke/*.txt
+            build/e2e/*.png
+            build/e2e/*.log
+          if-no-files-found: ignore
+          retention-days: 7

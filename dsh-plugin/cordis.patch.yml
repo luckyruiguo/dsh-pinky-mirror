@@ -1,0 +1,11 @@
+# dsh-plugin-pinky bundle patch
+#
+# 这个文件是插件的 `dsh.bundle.patch` 层：DSH 启动时把它合并进 loader 树，
+# 插入本插件的条目。没有它，profile 会拒绝加载（"declares no dsh.bundle"）。
+#
+# 宿主侧（lib/index.js）是空实现：画面流由独立的 Pinky daemon 提供，
+# 浏览器侧（lib/client.js）负责侧边栏 tab。这里只需要把客户端插件挂上。
+
+- insert:
+    - id: dsh-plugin-pinky
+      name: 'dsh-plugin-pinky'

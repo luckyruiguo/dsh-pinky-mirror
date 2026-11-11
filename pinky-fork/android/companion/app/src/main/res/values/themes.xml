@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Pinky" parent="@android:style/Theme.DeviceDefault.DayNight">
+        <item name="android:colorAccent">#EE4D6C</item>
+    </style>
+</resources>

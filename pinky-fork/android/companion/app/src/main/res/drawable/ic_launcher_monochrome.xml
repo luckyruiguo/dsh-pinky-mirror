@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Themed (monochrome) icon layer, Android 13+: the foreground's shapes in one
+  color. The body becomes a bezel around the screen, the eyes keep their
+  pupils as holes, and the ring and mouth stay. Same transforms as
+  ic_launcher_foreground.xml.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:pivotX="548"
+        android:pivotY="494"
+        android:scaleX="0.066"
+        android:scaleY="0.066"
+        android:translateX="-494"
+        android:translateY="-440">
+        <group
+            android:pivotX="512"
+            android:pivotY="540"
+            android:scaleX="1.12"
+            android:scaleY="1.12"
+            android:translateY="-28">
+            <group
+                android:pivotX="505"
+                android:pivotY="544"
+                android:rotation="-6">
+                <path
+                    android:pathData="M636,262a64,64 0,1 0,128 0a64,64 0,1 0,-128 0z"
+                    android:strokeWidth="46"
+                    android:strokeColor="#FF000000" />
+                <path
+                    android:fillColor="#FF000000"
+                    android:fillType="evenOdd"
+                    android:pathData="M410,238H600A148,148 0,0 1,748 386V702A148,148 0,0 1,600 850H410A148,148 0,0 1,262 702V386A148,148 0,0 1,410 238ZM412,276H598A112,112 0,0 1,710 388V700A112,112 0,0 1,598 812H412A112,112 0,0 1,300 700V388A112,112 0,0 1,412 276Z" />
+                <path
+                    android:fillColor="#FF000000"
+                    android:fillType="evenOdd"
+                    android:pathData="M394,520a49,61 0,1 0,98 0a49,61 0,1 0,-98 0zM425,501a29,29 0,1 0,58 0a29,29 0,1 0,-58 0zM522,520a49,61 0,1 0,98 0a49,61 0,1 0,-98 0zM553,501a29,29 0,1 0,58 0a29,29 0,1 0,-58 0z" />
+                <path
+                    android:fillColor="#FF000000"
+                    android:pathData="M476,600Q507,641 538,600z" />
+            </group>
+        </group>
+    </group>
+</vector>

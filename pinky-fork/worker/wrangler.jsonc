@@ -1,0 +1,30 @@
+// Pinky's telemetry backend (README.md). Deploy with the global wrangler:
+// wrangler deploy (from this folder).
+{
+  "name": "pinky-telemetry",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-07",
+  "workers_dev": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "pinky-telemetry",
+      // In the RSS3 account (wrangler d1 create pinky-telemetry, APAC).
+      "database_id": "9d00be51-1cd9-4f82-9846-6d58473d4fa6",
+      "migrations_dir": "migrations"
+    }
+  ],
+  // A rough limit per address, so one client cannot flood the database.
+  "ratelimits": [
+    {
+      "name": "LIMITER",
+      "namespace_id": "4651",
+      "simple": { "limit": 30, "period": 60 }
+    }
+  ],
+  // Deletes old reports every day (src/index.js, scheduled).
+  "triggers": { "crons": ["23 3 * * *"] },
+  // No Workers Logs: the Worker keeps nothing about requests beyond the
+  // reports themselves.
+  "observability": { "enabled": false }
+}

@@ -1,0 +1,73 @@
+Fixes for building adb with mingw-w64, from MSYS2's mingw-w64-android-tools
+package (https://github.com/msys2/MINGW-packages/tree/master/mingw-w64-android-tools,
+0002-android-tools-vendor.patch and 0003-fix-building-with-gcc-mingw.patch),
+for android-tools 37.0.0p1. scripts/adb.sh applies it with patch -p1 to the
+Windows build only. (MSYS2's 0004-leave-wstat-as-is.patch is for its newer
+mingw-w64 headers; Ubuntu 24.04's need adb's own _wstat64.)
+
+- BoringSSL: wincrypt.h's macros clash with BoringSSL's names, and its
+  hand-written ADX assembly for P-256 is for the System V ABI only.
+- libziparchive: mingw-w64 lays out a bit-field of uint16_t after one of
+  uint32_t in a new unit, which breaks a static_assert on the struct's size.
+- adb: sysdeps.h undefines write before it may be defined.
+
+--- a/vendor/boringssl/include/openssl/target.h
++++ b/vendor/boringssl/include/openssl/target.h
+@@ -78,8 +78,13 @@
+ #define OPENSSL_APPLE
+ #endif
+ 
++// Unfortunate workaround to avoid symbol conflict with wincrypt.h
++// See https://github.com/openssl/openssl/issues/9981
+ #if defined(_WIN32)
+ #define OPENSSL_WINDOWS
++#undef PKCS7_SIGNER_INFO
++#undef X509_EXTENSIONS
++#undef X509_NAME
+ #endif
+ 
+ // Trusty and Android baremetal aren't Linux but currently define __linux__.
+--- a/vendor/boringssl/third_party/fiat/p256_64.h
++++ b/vendor/boringssl/third_party/fiat/p256_64.h
+@@ -178,7 +178,7 @@
+  */
+ static FIAT_P256_FIAT_INLINE void fiat_p256_mul(fiat_p256_montgomery_domain_field_element out1, const fiat_p256_montgomery_domain_field_element arg1, const fiat_p256_montgomery_domain_field_element arg2) {
+   // NOTE: edited by hand, see third_party/fiat/README.md
+-#if !defined(OPENSSL_NO_ASM) && defined(__GNUC__) && defined(__x86_64__)
++#if !defined(OPENSSL_NO_ASM) && defined(__GNUC__) && defined(__x86_64__) && !defined(OPENSSL_WINDOWS)
+   if (bssl::CRYPTO_is_BMI1_capable() && bssl::CRYPTO_is_BMI2_capable() &&
+       bssl::CRYPTO_is_ADX_capable()) {
+     fiat_p256_adx_mul(out1, arg1, arg2);
+@@ -493,7 +493,7 @@
+  */
+ static FIAT_P256_FIAT_INLINE void fiat_p256_square(fiat_p256_montgomery_domain_field_element out1, const fiat_p256_montgomery_domain_field_element arg1) {
+   // NOTE: edited by hand, see third_party/fiat/README.md
+-#if !defined(OPENSSL_NO_ASM) && defined(__GNUC__) && defined(__x86_64__)
++#if !defined(OPENSSL_NO_ASM) && defined(__GNUC__) && defined(__x86_64__) && !defined(OPENSSL_WINDOWS)
+   if (bssl::CRYPTO_is_BMI1_capable() && bssl::CRYPTO_is_BMI2_capable() &&
+       bssl::CRYPTO_is_ADX_capable()) {
+     fiat_p256_adx_sqr(out1, arg1);
+--- a/vendor/libziparchive/zip_cd_entry_map.h
++++ b/vendor/libziparchive/zip_cd_entry_map.h
+@@ -90,7 +90,7 @@
+   static constexpr size_t offset_max = (1u << 20) - 1;
+   static constexpr size_t length_max = (1u << 12) - 1;
+   uint32_t name_offset : 20;
+-  uint16_t name_length : 12;
++  uint32_t name_length : 12;
+ };
+ 
+ static_assert(sizeof(struct ZipStringOffset20) == 4);
+--- a/vendor/adb/sysdeps.h
++++ b/vendor/adb/sysdeps.h
+@@ -141,8 +141,10 @@
+ static inline int unix_write(borrowed_fd fd, const void* buf, size_t len) {
+     return write(fd.get(), buf, len);
+ }
++#ifdef write
+ #undef   write
+ #define  write  ___xxx_write
++#endif
+ 
+ #undef pwrite
+ #define pwrite ___xxx_pwrite

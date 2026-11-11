@@ -1,0 +1,6 @@
+# Git never changes line ends here: every system checks files out exactly
+# as they are committed, as the Go repository does. Git for Windows turns
+# LF into CRLF on checkout by default (core.autocrlf), and Go embeds files
+# such as internal/policy/defaults.yaml byte for byte, so a build from such
+# a checkout would differ from the released one, which is built on Linux.
+* -text

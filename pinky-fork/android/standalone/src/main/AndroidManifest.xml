@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- The agent's model is in the cloud. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Lets the service list and open launchable apps. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+    </queries>
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/standalone_app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Pinky">
+
+        <!-- Its own process: the accessibility cache does not refresh
+             windows of the service's own process, and the service must
+             see this screen to keep the agent off it. -->
+        <activity
+            android:name="app.pinky.standalone.TaskActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:process=":ui"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="app.pinky.standalone.StandaloneService"
+            android:exported="true"
+            android:label="@string/standalone_service_label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility_standalone" />
+        </service>
+    </application>
+</manifest>

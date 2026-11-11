@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Converted from brand/pinky-android-foreground.svg. The three groups reproduce
+  the SVG transforms (translate/scale, scale about the body, a 6 degree tilt);
+  shapes keep the SVG's 1024-unit coordinates.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <group
+        android:pivotX="548"
+        android:pivotY="494"
+        android:scaleX="0.066"
+        android:scaleY="0.066"
+        android:translateX="-494"
+        android:translateY="-440">
+        <group
+            android:pivotX="512"
+            android:pivotY="540"
+            android:scaleX="1.12"
+            android:scaleY="1.12"
+            android:translateY="-28">
+            <group
+                android:pivotX="505"
+                android:pivotY="544"
+                android:rotation="-6">
+                <!-- Strap ring -->
+                <path
+                    android:pathData="M636,262a64,64 0,1 0,128 0a64,64 0,1 0,-128 0z"
+                    android:strokeWidth="46">
+                    <aapt:attr name="android:strokeColor">
+                        <gradient
+                            android:type="linear"
+                            android:startX="636"
+                            android:startY="198"
+                            android:endX="764"
+                            android:endY="326">
+                            <item android:offset="0" android:color="#FFFF8A9B" />
+                            <item android:offset="1" android:color="#FFEE4D6C" />
+                        </gradient>
+                    </aapt:attr>
+                </path>
+                <!-- Body: drawn in its unit bounding box so the radial gradient
+                     stretches with the box, as SVG objectBoundingBox units do. -->
+                <group
+                    android:scaleX="486"
+                    android:scaleY="612"
+                    android:translateX="262"
+                    android:translateY="238">
+                    <path android:pathData="M0.304527,0H0.695473A0.304527,0.24183 0,0 1,1 0.24183V0.75817A0.304527,0.24183 0,0 1,0.695473 1H0.304527A0.304527,0.24183 0,0 1,0 0.75817V0.24183A0.304527,0.24183 0,0 1,0.304527 0z">
+                        <aapt:attr name="android:fillColor">
+                            <gradient
+                                android:type="radial"
+                                android:centerX="0.3"
+                                android:centerY="0.18"
+                                android:gradientRadius="0.95">
+                                <item android:offset="0" android:color="#FFFFFFFF" />
+                                <item android:offset="0.6" android:color="#FFFCF9F4" />
+                                <item android:offset="1" android:color="#FFEFE4D3" />
+                            </gradient>
+                        </aapt:attr>
+                    </path>
+                </group>
+                <!-- Screen -->
+                <path android:pathData="M412,276H598A112,112 0,0 1,710 388V700A112,112 0,0 1,598 812H412A112,112 0,0 1,300 700V388A112,112 0,0 1,412 276z">
+                    <aapt:attr name="android:fillColor">
+                        <gradient
+                            android:type="linear"
+                            android:startX="505"
+                            android:startY="276"
+                            android:endX="505"
+                            android:endY="812">
+                            <item android:offset="0" android:color="#FF2B3144" />
+                            <item android:offset="1" android:color="#FF151923" />
+                        </gradient>
+                    </aapt:attr>
+                </path>
+                <!-- Eyes -->
+                <path
+                    android:fillColor="#FFF8F6F5"
+                    android:pathData="M394,520a49,61 0,1 0,98 0a49,61 0,1 0,-98 0zM522,520a49,61 0,1 0,98 0a49,61 0,1 0,-98 0z" />
+                <path
+                    android:fillColor="#FF151923"
+                    android:pathData="M425,501a29,29 0,1 0,58 0a29,29 0,1 0,-58 0zM553,501a29,29 0,1 0,58 0a29,29 0,1 0,-58 0z" />
+                <path
+                    android:fillColor="#FFFFFFFF"
+                    android:pathData="M453,491a10,10 0,1 0,20 0a10,10 0,1 0,-20 0zM581,491a10,10 0,1 0,20 0a10,10 0,1 0,-20 0z" />
+                <!-- Blush -->
+                <path
+                    android:fillAlpha="0.9"
+                    android:fillColor="#FFFF7F95"
+                    android:pathData="M351,609a35,21 0,1 0,70 0a35,21 0,1 0,-70 0zM593,609a35,21 0,1 0,70 0a35,21 0,1 0,-70 0z" />
+                <!-- Mouth -->
+                <path
+                    android:fillColor="#FFFF7F95"
+                    android:pathData="M476,600Q507,641 538,600z" />
+            </group>
+        </group>
+    </group>
+</vector>

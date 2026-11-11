@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<!-- SYNTHETIC dump, made up for Pinky's tests from what is known of this lock screen; not taken from a device.
+     Models: vivo OriginOS (Android 15, vivo V2172A) opening on its own fingerprint page,
+     in Chinese, before the PIN pad shows.
+     Based on: a picture of that page from Pinky's mirror, posted by its owner
+     (DIYgod/pinky#41): the title 请验证指纹 above the middle, the sensor's ring
+     low in the middle, and a row of three links at the bottom, 紧急拨号 on the
+     left, 使用密码 in the middle and 取消 on the right. Tapping 使用密码 by hand
+     brought up the PIN pad. Bounds are scaled from that picture to 1080x2400.
+     Invented: the package (com.android.systemui), every class and resource id
+     (none are known; the links have none here), which nodes are clickable, and
+     whether the page shows its words to accessibility at all.
+-->
+<hierarchy rotation="0">
+<node index="0" text="" resource-id="" class="android.widget.FrameLayout" package="com.android.systemui" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[0,0][1080,2400]">
+ <node index="0" text="" resource-id="com.android.systemui:id/status_bar_container" class="android.widget.FrameLayout" package="com.android.systemui" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[0,0][1080,110]">
+  <node index="0" text="10:42" resource-id="" class="android.widget.TextView" package="com.android.systemui" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[60,20][220,90]" />
+  <node index="1" text="" resource-id="" class="android.widget.LinearLayout" package="com.android.systemui" content-desc="电池电量 80%" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[860,20][1040,90]" />
+ </node>
+ <node index="1" text="请验证指纹" resource-id="" class="android.widget.TextView" package="com.android.systemui" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[340,750][740,840]" />
+ <node index="2" text="" resource-id="" class="android.widget.ImageView" package="com.android.systemui" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[340,1610][740,2010]" />
+ <node index="3" text="" resource-id="" class="android.widget.LinearLayout" package="com.android.systemui" content-desc="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[0,2200][1080,2370]">
+  <node index="0" text="紧急拨号" resource-id="" class="android.widget.TextView" package="com.android.systemui" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[60,2240][320,2330]" />
+  <node index="1" text="使用密码" resource-id="" class="android.widget.TextView" package="com.android.systemui" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[410,2240][670,2330]" />
+  <node index="2" text="取消" resource-id="" class="android.widget.TextView" package="com.android.systemui" content-desc="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" scrollable="false" long-clickable="false" password="false" selected="false" bounds="[860,2240][1040,2330]" />
+ </node>
+</node>
+</hierarchy>

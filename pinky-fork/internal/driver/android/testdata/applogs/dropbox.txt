@@ -1,0 +1,276 @@
++0800
+Drop box contents: 255 entries
+Max entries: 1000
+Low priority rate limit period: 2000 ms
+Low priority tags: {data_app_wtf, keymaster, system_server_wtf, system_app_strictmode, system_app_wtf, system_server_strictmode, data_app_strictmode, netstats}
+Searching for: data_app_crash
+
+========================================
+2026-11-09 17:58:13 data_app_crash (text, 1341 bytes)
+SystemUptimeMs: 597699
+Process: dev.pinky.crashtest
+PID: 8566
+UID: 10213
+Frozen: false
+Flags: 0x30a8be46
+Package: dev.pinky.crashtest v0
+Foreground: Yes
+Process-Runtime: 10244
+Timestamp: 2026-11-09 17:58:13.497+0800
+Build: google/sdk_gphone64_arm64/emu64a:16/BE2A.250530.026.F3/13894323:userdebug/dev-keys
+Crash-Handler: com.android.internal.os.RuntimeInit$KillApplicationHandler
+Loading-Progress: 1.0
+Incremental: Yes
+Dropped-Count: 0
+
+java.lang.IllegalStateException: Crash button tapped
+	at dev.pinky.crashtest.Main.lambda$onCreate$1(Main.java:26)
+	at dev.pinky.crashtest.Main$$ExternalSyntheticLambda1.onClick(D8$$SyntheticClass:0)
+	at android.view.View.performClick(View.java:8083)
+	at android.view.View.performClickInternal(View.java:8060)
+	at android.view.View.-$$Nest$mperformClickInternal(Unknown Source:0)
+	at android.view.View$PerformClick.run(View.java:31549)
+	at android.os.Handler.handleCallback(Handler.java:995)
+	at android.os.Handler.dispatchMessage(Handler.java:103)
+	at android.os.Looper.loopOnce(Looper.java:248)
+	at android.os.Looper.loop(Looper.java:338)
+	at android.app.ActivityThread.main(ActivityThread.java:9067)
+	at java.lang.reflect.Method.invoke(Native Method)
+	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:593)
+	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:932)
+
+
+========================================
+2026-11-09 17:59:01 data_app_crash (text, 400 bytes)
+Process: com.example.other
+PID: 9100
+UID: 10220
+Package: com.example.other v3
+Timestamp: 2026-11-09 17:59:01.100+0800
+
+java.lang.RuntimeException: someone else
+	at com.example.other.Main.run(Main.java:1)
+
+========================================
+2026-11-09 09:00:00 data_app_crash (text, 400 bytes)
+Process: dev.pinky.crashtest
+PID: 7000
+UID: 10213
+Package: dev.pinky.crashtest v0
+Timestamp: 2026-11-09 09:00:00.000+0800
+
+java.lang.RuntimeException: old crash
+
+Drop box contents: 255 entries
+Searching for: data_app_native_crash
+
+========================================
+2026-11-09 17:58:30 data_app_native_crash (text, 900 bytes)
+Process: dev.pinky.crashtest
+PID: 8650
+UID: 10213
+Package: dev.pinky.crashtest v0
+Timestamp: 2026-11-09 17:58:30.250+0800
+
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Build fingerprint: 'google/sdk_gphone64_arm64/emu64a:16/BE2A.250530.026.F3/13894323:userdebug/dev-keys'
+Cmdline: dev.pinky.crashtest
+pid: 8650, tid: 8650, name: pinky.crashtest  >>> dev.pinky.crashtest <<<
+uid: 10213
+signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+Abort message: 'native crash button'
+backtrace:
+      #00 pc 000000000005c0b0  /apex/com.android.runtime/lib64/bionic/libc.so (abort+164)
+      #01 pc 0000000000001234  /data/app/dev.pinky.crashtest/lib/arm64/libcrash.so (Java_dev_pinky_crashtest_Main_crash+20)
+
+Drop box contents: 252 entries
+Max entries: 1000
+Low priority rate limit period: 2000 ms
+Low priority tags: {data_app_wtf, keymaster, system_server_wtf, system_app_strictmode, system_app_wtf, system_server_strictmode, data_app_strictmode, netstats}
+Searching for: data_app_anr
+
+========================================
+2026-11-09 17:58:49 data_app_anr (compressed text, 22788 bytes)
+SystemUptimeMs: 633953
+Process: dev.pinky.crashtest
+PID: 8726
+UID: 10213
+Frozen: false
+Timestamp: 2026-11-09 17:58:49.071+0800
+Flags: 0x3088be46
+Package: dev.pinky.crashtest v0
+Foreground: Yes
+Process-Runtime: 8139
+Activity: dev.pinky.crashtest/.Main
+ErrorId: 7f710412-3a6d-4b39-80b8-a879abc56c4f
+Build: google/sdk_gphone64_arm64/emu64a:16/BE2A.250530.026.F3/13894323:userdebug/dev-keys
+Loading-Progress: 1.0
+Incremental: Yes
+Dropped-Count: 0
+
+----- Output from /proc/pressure/memory -----
+some avg10=0.02 avg60=0.17 avg300=0.22 total=3454103
+full avg10=0.00 avg60=0.03 avg300=0.03 total=1121912
+----- End output from /proc/pressure/memory -----
+----- Output from /proc/pressure/cpu -----
+some avg10=2.98 avg60=2.90 avg300=4.13 total=52969122
+full avg10=0.00 avg60=0.00 avg300=0.00 total=0
+----- End output from /proc/pressure/cpu -----
+----- Output from /proc/pressure/io -----
+some avg10=0.04 avg60=0.37 avg300=0.68 total=9537043
+full avg10=0.01 avg60=0.07 avg300=0.12 total=2720045
+----- End output from /proc/pressure/io -----
+
+CPU usage from 17479ms to -1ms ago (2026-11-09 17:58:31.596 to 2026-11-09 17:58:49.075):
+  4.2% 521/surfaceflinger: 1.4% user + 2.8% kernel / faults: 65 minor
+  3.3% 988/com.android.systemui: 1.1% user + 2.1% kernel / faults: 2586 minor 41 major
+  2.1% 491/android.hardware.graphics.composer3-service.ranchu: 0.1% user + 2% kernel
+  1.8% 722/system_server: 1% user + 0.8% kernel / faults: 1201 minor 26 major
+  1% 1129/com.google.android.apps.nexuslauncher: 0.2% user + 0.7% kernel / faults: 68 minor
+  0.8% 1649/com.google.android.gms: 0.2% user + 0.5% kernel / faults: 2896 minor 5932 major
+  0.1% 487/android.hardware.sensors-service.multihal: 0.1% user + 0% kernel
+  0.1% 517/audioserver: 0% user + 0.1% kernel / faults: 2 major
+  0.1% 591/logcat: 0% user + 0.1% kernel
+  0.1% 16/rcu_preempt: 0% user + 0.1% kernel
+9.7% TOTAL: 2.5% user + 5% kernel + 0% iowait + 2% irq + 0% softirq
+Data File: /data/anr/anr_2026-11-09-17-58-49-079
+Subject: Input dispatching timed out (4b990c9 dev.pinky.crashtest/dev.pinky.crashtest.Main is not responding. Waited 5001ms for MotionEvent(deviceId=-1, eventTime=628269000000, source=TOUCHSCREEN, displayId=0, action=DOWN, actionButton=0x00000000, flags=0x00000000, metaState=0x00000000, buttonState=0x00000000, classification=NONE, edgeFlags=0x00000000, xPrecision=1.0, yPrecision=1.0, xCursorPosition=nan, yCursorPosition=nan, pointers=[0: (540.0, 220.0)]), policyFlags=0x6b000000).
+RssHwmKb: 140696
+RssKb: 135312
+RssAnonKb: 42640
+RssShmemKb: 12160
+VmSwapKb: 20792
+
+
+--- CriticalEventLog ---
+capacity: 20
+events <
+  timestamp_ms: 1794218224624
+  install_packages <
+  >
+>
+events <
+  timestamp_ms: 1794218282684
+  install_packages <
+  >
+>
+events <
+  timestamp_ms: 1794218293496
+  java_crash <
+    exception_class: "java.lang.IllegalStateException"
+    pid: 8566
+    process: "dev.pinky.crashtest"
+    process_class: 1
+    uid: 10213
+  >
+>
+timestamp_ms: 1794218329076
+window_ms: 300000
+
+----- dumping pid: 8726 at 633277
+
+----- pid 8726 at 2026-11-09 17:58:49.083232523+0800 -----
+Cmd line: dev.pinky.crashtest
+Build fingerprint: 'google/sdk_gphone64_arm64/emu64a:16/BE2A.250530.026.F3/13894323:userdebug/dev-keys'
+ABI: 'arm64'
+Build type: optimized
+Debug Store: 3,2,633286::ID:1,C:E,T:626005||ID:1,C:S,T:625940,N:BindApp;;
+suspend all histogram:	Sum: 177us 99% C.I. 0.092us-131us Avg: 11.800us Max: 131us
+DALVIK THREADS (18):
+"main" prio=5 tid=1 Sleeping
+  | group="main" sCount=1 ucsCount=0 flags=1 obj=0x720c4f68 self=0xb4000074f43c6be0
+  | sysTid=8726 nice=-10 cgrp=top-app sched=0/0 handle=0x761934f090
+  | state=S schedstat=( 200563999 109452876 281 ) utm=15 stm=4 core=0 HZ=100
+  | stack=0x7fe80d5000-0x7fe80d7000 stackSize=8188KB
+  | held mutexes=
+  at java.lang.Thread.sleep(Native method)
+  - sleeping on <0x0944ae36> (a java.lang.Object)
+  at java.lang.Thread.sleep(Thread.java:451)
+  - locked <0x0944ae36> (a java.lang.Object)
+  at java.lang.Thread.sleep(Thread.java:356)
+  at java.lang.Thread.sleep(Native method)
+  at dev.pinky.crashtest.Main.lambda$onCreate$2(Main.java:31)
+
+    FullGcCountDelta: count = 0
+    TimeElapsedDelta: count = 625850
+    AppSlowPathDuringYoungGcDurationDelta: count = 0
+    AppSlowPathDuringFullGcDurationDelta: count = 0
+*** Done dumping ART internal metrics ***
+
+----- end 8726 -----
+
+----- Waiting Channels: pid 8726 at 2026-11-09 17:58:49.078472148+0800 -----
+Cmd line: dev.pinky.crashtest
+
+sysTid=8726      futex_wait_queue
+sysTid=8728      do_sigtimedwait
+sysTid=8729      pipe_read
+sysTid=8730      do_sys_poll
+sysTid=8731      futex_wait_queue
+sysTid=8732      futex_wait_queue
+sysTid=8733      futex_wait_queue
+sysTid=8734      futex_wait_queue
+sysTid=8735      futex_wait_queue
+sysTid=8736      binder_thread_read
+sysTid=8737      binder_thread_read
+sysTid=8738      binder_thread_read
+sysTid=8740      futex_wait_queue
+sysTid=8741      futex_wait_queue
+sysTid=8743      do_sys_poll
+sysTid=8744      futex_wait_queue
+sysTid=8745      futex_wait_queue
+sysTid=8746      do_epoll_wait
+sysTid=8748      binder_thread_read
+sysTid=8750      futex_wait_queue
+
+----- end 8726 -----
+
+DurationsV5: 633273,1,0,1,6,9,1,0,2,0,0,0,0,0,0,0,105,1,1,100,2,1,1,0,2
+
+----- dumping pid: 722 at 633381
+proc 722
+context hwbinder
+  buffer 5193: 0 size 8:0:0 delivered
+  buffer 6567: 18 size 8:0:0 delivered
+
+----- pid 722 at 2026-11-09 17:58:49.186833648+0800 -----
+Cmd line: system_server
+Build fingerprint: 'google/sdk_gphone64_arm64/emu64a:16/BE2A.250530.026.F3/13894323:userdebug/dev-keys'
+ABI: 'arm64'
+Build type: optimized
+Debug Store: 3,16,633389::ID:1291,C:E,T:616895||ID:1291,C:S,T:616894,N:SchRcvReg,D:tname=android.fg;tid=22||ID:0,C:P,T:587985,N:Finish,D:tname=main;tid=2;prid=faba717||ID:1289,C:E,T:587985||ID:0,C:P,T:587969,N:Finish,D:tname=AppWidgetServiceImpl;tid=143;prid=bc95704||ID:1290,C:E,T:587969||ID:1290,C:S,T:587969,N:BcRcvReg,D:tname=AppWidgetServiceImpl;tid=143;act=android.intent.action.PACKAGE_UNSTOPPED;cmp=null;pkg=null;prid=bc95704||ID:1289,C:S,T:587969,N:BcRcvReg,D:tname=main;tid=2;act=android.intent.action.PACKAGE_UNSTOPPED;cmp=null;pkg=null;prid=faba717||ID:1288,C:E,T:587969||ID:1288,C:S,T:587969,N:SchRcvReg,D:tname=android.fg;tid=22||ID:1287,C:E,T:587969||ID:1287,C:S,T:587969,N:SchRcvReg,D:tname=android.fg;tid=22||ID:0,C:P,T:587275,N:Finish,D:tname=main;tid=2;prid=56031||ID:1286,C:E,T:587275||ID:1286,C:S,T:587275,N:BcRcvReg,D:tname=main;tid=2;act=android.intent.action.PACKAGE_CHANGED;cmp=null;pkg=null;prid=56031||ID:0,C:P,T:587275,N:Finish,D:tname=main;tid=2;prid=f4c94d8;;
+suspend all histogram:	Sum: 9.739ms 99% C.I. 0.764us-3852.800us Avg: 198.755us Max: 4477us
+DALVIK THREADS (243):
+"ReferenceQueueDaemon" daemon prio=5 tid=4 Waiting
+  | group="system" sCount=1 ucsCount=0 flags=1 obj=0x2002d48 self=0xb4000074f43e0d10
+  | sysTid=745 nice=4 cgrp=foreground sched=0/0 handle=0x731dbe5500
+  | state=S schedstat=( 49882965 391554620 865 ) utm=3 stm=1 core=2 HZ=100
+  | stack=0x731dae2000-0x731dae4000 stackSize=1037KB
+  | held mutexes=
+  at java.lang.Object.wait(Native method)
+  - waiting on <0x018ae2f3> (a java.lang.Class<java.lang.ref.ReferenceQueue>)
+  at java.lang.Object.wait(Object.java:405)
+  at java.lang.Object.wait(Object.java:543)
+  at java.lang.Daemons$ReferenceQueueDaemon.runInternal(Daemons.java:260)
+  - locked <0x018ae2f3> (a java.lang.Class<java.lang.ref.ReferenceQueue>)
+  at java.lang.Daemons$Daemon.run(Daemons.java:132)
+  at java.lang.Thread.run(Thread.java:1119)
+DumpLatencyMs: 17.1471
+
+"FinalizerDaemon" daemon prio=5 tid=7 Waiting
+  | group="system" sCount=1 ucsCount=0 flags=1 obj=0x2002dd8 self=0xb4000074f43cbf50
+  | sysTid=746 nice=4 cgrp=foreground sched=0/0 handle=0x7318df8500
+  | state=S schedstat=( 63264663 348318166 75 ) utm=2 stm=3 core=2 HZ=100
+  | stack=0x7318cf5000-0x7318cf7000 stackSize=1037KB
+  | held mutexes=
+  at java.lang.Object.wait(Native method)
+  - waiting on <0x043adbb0> (a java.lang.Object)
+  at java.lang.Object.wait(Object.java:405)
+  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:207)
+  - locked <0x043adbb0> (a java.lang.Object)
+  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:228)
+  at java.lang.Daemons$FinalizerDaemon.runInternal(Daemons.java:348)
+  at java.lang.Daemons$Daemon.run(Daemons.java:132)
+  at java.lang.Thread.run(Thread.java:1119)
+[[TRUNCATED]]
+End Data File

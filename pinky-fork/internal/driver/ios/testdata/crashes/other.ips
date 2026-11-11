@@ -1,0 +1,2 @@
+{"app_name":"Example","timestamp":"2026-11-09 12:40:00.00 +0800","app_version":"3.0","build_version":"1","platform":2,"bundleID":"com.someone.else","bug_type":"309","os_version":"iPhone OS 26.1 (23B85)","name":"Example","incident_id":"0F0E0D0C-0000-4000-8000-000000000004"}
+{"pid":4600,"procName":"Example","exception":{"type":"EXC_BAD_ACCESS","signal":"SIGSEGV"},"asi":{"x":["another app's secret"]}}

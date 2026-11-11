@@ -1,0 +1,9 @@
+{
+  "name": "pinky-telemetry",
+  "private": true,
+  "type": "module",
+  "description": "Pinky's telemetry backend, a Cloudflare Worker. No dependencies: deploy with the global wrangler.",
+  "scripts": {
+    "test": "node --test"
+  }
+}

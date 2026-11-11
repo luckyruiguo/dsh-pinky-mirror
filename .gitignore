@@ -1,0 +1,15 @@
+# 编译产物
+bin/
+*.exe
+prebuilt/
+
+# 运行时数据
+home/
+*.log
+
+# 依赖
+node_modules/
+
+# 系统
+.DS_Store
+Thumbs.db

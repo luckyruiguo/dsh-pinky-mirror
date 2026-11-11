@@ -1,0 +1,17 @@
+{"app_name":"Example","timestamp":"2026-11-09 11:00:05.00 +0800","app_version":"1.2","build_version":"7","platform":2,"bundleID":"dev.pinky.example","bug_type":"309","os_version":"iPhone OS 26.1 (23B85)","name":"Example","incident_id":"0F0E0D0C-0000-4000-8000-000000000002"}
+{
+  "pid" : 4400,
+  "procName" : "Example",
+  "osVersion" : {"train" : "iPhone OS 26.1", "build" : "23B85"},
+  "exception" : {"codes":"0x0000000000000000, 0x0000000000000000","rawCodes":[0,0],"type":"EXC_CRASH","signal":"SIGABRT"},
+  "termination" : {"flags":0,"code":6,"namespace":"SIGNAL","indicator":"Abort trap: 6","byProc":"Example","byPid":4400},
+  "asi" : {"libsystem_c.dylib":["abort() called"]},
+  "exceptionReason" : {"arguments":[],"format_string":"*** -[__NSArrayM insertObject:atIndex:]: object cannot be nil","name":"NSInvalidArgumentException","type":"objc-exception","composed_message":"*** -[__NSArrayM insertObject:atIndex:]: object cannot be nil","class":"NSException"},
+  "lastExceptionBacktrace" : [{"imageOffset":1000,"symbol":"__exceptionPreprocess","symbolLocation":164,"imageIndex":1},{"imageOffset":2000,"symbol":"objc_exception_throw","symbolLocation":88,"imageIndex":1},{"imageOffset":512,"symbol":"-[ViewController add:]","symbolLocation":60,"imageIndex":0}],
+  "faultingThread" : 0,
+  "threads" : [{"triggered":true,"id":9100,"queue":"com.apple.main-thread","frames":[{"imageOffset":3000,"symbol":"__pthread_kill","symbolLocation":8,"imageIndex":1}]}],
+  "usedImages" : [
+  {"source":"P","arch":"arm64","base":4294967296,"size":65536,"uuid":"11111111-2222-3333-4444-555555555555","path":"\/private\/var\/containers\/Bundle\/Application\/AAAA-1111\/Example.app\/Example","name":"Example"},
+  {"source":"P","arch":"arm64e","base":6442450944,"size":1000000,"uuid":"66666666-7777-8888-9999-000000000000","path":"\/usr\/lib\/system\/libsystem_kernel.dylib","name":"libsystem_kernel.dylib"}
+]
+}

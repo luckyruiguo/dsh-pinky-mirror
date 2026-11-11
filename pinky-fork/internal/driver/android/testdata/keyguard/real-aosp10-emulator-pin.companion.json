@@ -1,0 +1,551 @@
+{
+ "display": {
+  "id": 0,
+  "width": 1080,
+  "height": 1920,
+  "density_dpi": 420,
+  "rotation": 0
+ },
+ "locked": true,
+ "secure_locked": true,
+ "windows": [
+  {
+   "id": 42,
+   "type": "system",
+   "layer": 1,
+   "title": "Navigation bar",
+   "bounds": [
+    0,
+    1794,
+    1080,
+    1920
+   ],
+   "root_ms": 0,
+   "walk_ms": 0,
+   "nodes": 0
+  },
+  {
+   "id": 41,
+   "type": "system",
+   "layer": 0,
+   "bounds": [
+    0,
+    0,
+    1080,
+    1920
+   ],
+   "active": true,
+   "focused": true,
+   "package": "com.android.systemui",
+   "app": "System UI",
+   "root": {
+    "class": "android.widget.FrameLayout",
+    "bounds": [
+     0,
+     0,
+     1080,
+     1920
+    ],
+    "node": 39411,
+    "children": [
+     {
+      "class": "android.widget.FrameLayout",
+      "bounds": [
+       0,
+       0,
+       1080,
+       1920
+      ],
+      "node": 881247,
+      "children": [
+       {
+        "class": "android.widget.FrameLayout",
+        "id": "com.android.systemui:id/keyguard_host_view",
+        "bounds": [
+         0,
+         613,
+         1080,
+         1920
+        ],
+        "node": 882208,
+        "children": [
+         {
+          "class": "android.widget.EditText",
+          "desc": "PIN area",
+          "id": "com.android.systemui:id/pinEntry",
+          "bounds": [
+           189,
+           634,
+           890,
+           804
+          ],
+          "editable": true,
+          "focusable": true,
+          "focused": true,
+          "selected": true,
+          "password": true,
+          "node": 887974
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "1",
+          "id": "com.android.systemui:id/key1",
+          "bounds": [
+           95,
+           846,
+           391,
+           1058
+          ],
+          "clickable": true,
+          "focusable": true,
+          "node": 890857,
+          "children": [
+           {
+            "class": "android.widget.TextView",
+            "text": "1",
+            "id": "com.android.systemui:id/digit_text",
+            "bounds": [
+             220,
+             875,
+             267,
+             987
+            ],
+            "node": 891818
+           }
+          ]
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "2",
+          "id": "com.android.systemui:id/key2",
+          "bounds": [
+           391,
+           846,
+           688,
+           1058
+          ],
+          "clickable": true,
+          "focusable": true,
+          "node": 893740,
+          "children": [
+           {
+            "class": "android.widget.TextView",
+            "text": "ABC",
+            "id": "com.android.systemui:id/klondike_text",
+            "bounds": [
+             508,
+             971,
+             570,
+             1014
+            ],
+            "node": 895662
+           },
+           {
+            "class": "android.widget.TextView",
+            "text": "2",
+            "id": "com.android.systemui:id/digit_text",
+            "bounds": [
+             516,
+             875,
+             563,
+             987
+            ],
+            "node": 894701
+           }
+          ]
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "3",
+          "id": "com.android.systemui:id/key3",
+          "bounds": [
+           688,
+           846,
+           985,
+           1058
+          ],
+          "clickable": true,
+          "focusable": true,
+          "node": 896623,
+          "children": [
+           {
+            "class": "android.widget.TextView",
+            "text": "DEF",
+            "id": "com.android.systemui:id/klondike_text",
+            "bounds": [
+             808,
+             971,
+             865,
+             1014
+            ],
+            "node": 898545
+           },
+           {
+            "class": "android.widget.TextView",
+            "text": "3",
+            "id": "com.android.systemui:id/digit_text",
+            "bounds": [
+             813,
+             875,
+             860,
+             987
+            ],
+            "node": 897584
+           }
+          ]
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "4",
+          "id": "com.android.systemui:id/key4",
+          "bounds": [
+           95,
+           1058,
+           391,
+           1270
+          ],
+          "clickable": true,
+          "focusable": true,
+          "node": 900467,
+          "children": [
+           {
+            "class": "android.widget.TextView",
+            "text": "GHI",
+            "id": "com.android.systemui:id/klondike_text",
+            "bounds": [
+             216,
+             1183,
+             270,
+             1226
+            ],
+            "node": 902389
+           },
+           {
+            "class": "android.widget.TextView",
+            "text": "4",
+            "id": "com.android.systemui:id/digit_text",
+            "bounds": [
+             220,
+             1087,
+             267,
+             1199
+            ],
+            "node": 901428
+           }
+          ]
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "5",
+          "id": "com.android.systemui:id/key5",
+          "bounds": [
+           391,
+           1058,
+           688,
+           1270
+          ],
+          "clickable": true,
+          "focusable": true,
+          "node": 903350,
+          "children": [
+           {
+            "class": "android.widget.TextView",
+            "text": "JKL",
+            "id": "com.android.systemui:id/klondike_text",
+            "bounds": [
+             512,
+             1183,
+             567,
+             1226
+            ],
+            "node": 905272
+           },
+           {
+            "class": "android.widget.TextView",
+            "text": "5",
+            "id": "com.android.systemui:id/digit_text",
+            "bounds": [
+             516,
+             1087,
+             563,
+             1199
+            ],
+            "node": 904311
+           }
+          ]
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "6",
+          "id": "com.android.systemui:id/key6",
+          "bounds": [
+           688,
+           1058,
+           985,
+           1270
+          ],
+          "clickable": true,
+          "focusable": true,
+          "node": 906233,
+          "children": [
+           {
+            "class": "android.widget.TextView",
+            "text": "MNO",
+            "id": "com.android.systemui:id/klondike_text",
+            "bounds": [
+             800,
+             1183,
+             873,
+             1226
+            ],
+            "node": 908155
+           },
+           {
+            "class": "android.widget.TextView",
+            "text": "6",
+            "id": "com.android.systemui:id/digit_text",
+            "bounds": [
+             813,
+             1087,
+             860,
+             1199
+            ],
+            "node": 907194
+           }
+          ]
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "7",
+          "id": "com.android.systemui:id/key7",
+          "bounds": [
+           95,
+           1270,
+           391,
+           1482
+          ],
+          "clickable": true,
+          "focusable": true,
+          "node": 910077,
+          "children": [
+           {
+            "class": "android.widget.TextView",
+            "text": "PQRS",
+            "id": "com.android.systemui:id/klondike_text",
+            "bounds": [
+             203,
+             1395,
+             284,
+             1438
+            ],
+            "node": 911999
+           },
+           {
+            "class": "android.widget.TextView",
+            "text": "7",
+            "id": "com.android.systemui:id/digit_text",
+            "bounds": [
+             220,
+             1299,
+             267,
+             1411
+            ],
+            "node": 911038
+           }
+          ]
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "8",
+          "id": "com.android.systemui:id/key8",
+          "bounds": [
+           391,
+           1270,
+           688,
+           1482
+          ],
+          "clickable": true,
+          "focusable": true,
+          "node": 912960,
+          "children": [
+           {
+            "class": "android.widget.TextView",
+            "text": "TUV",
+            "id": "com.android.systemui:id/klondike_text",
+            "bounds": [
+             509,
+             1395,
+             569,
+             1438
+            ],
+            "node": 914882
+           },
+           {
+            "class": "android.widget.TextView",
+            "text": "8",
+            "id": "com.android.systemui:id/digit_text",
+            "bounds": [
+             516,
+             1299,
+             563,
+             1411
+            ],
+            "node": 913921
+           }
+          ]
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "9",
+          "id": "com.android.systemui:id/key9",
+          "bounds": [
+           688,
+           1270,
+           985,
+           1482
+          ],
+          "clickable": true,
+          "focusable": true,
+          "node": 915843,
+          "children": [
+           {
+            "class": "android.widget.TextView",
+            "text": "WXYZ",
+            "id": "com.android.systemui:id/klondike_text",
+            "bounds": [
+             793,
+             1395,
+             879,
+             1438
+            ],
+            "node": 917765
+           },
+           {
+            "class": "android.widget.TextView",
+            "text": "9",
+            "id": "com.android.systemui:id/digit_text",
+            "bounds": [
+             813,
+             1299,
+             860,
+             1411
+            ],
+            "node": 916804
+           }
+          ]
+         },
+         {
+          "class": "android.widget.ImageButton",
+          "desc": "Delete",
+          "id": "com.android.systemui:id/delete_button",
+          "bounds": [
+           95,
+           1482,
+           391,
+           1694
+          ],
+          "clickable": true,
+          "long_clickable": true,
+          "focusable": true,
+          "node": 919687
+         },
+         {
+          "class": "android.view.ViewGroup",
+          "desc": "0",
+          "id": "com.android.systemui:id/key0",
+          "bounds": [
+           391,
+           1482,
+           688,
+           1694
+          ],
+          "clickable": true,
+          "focusable": true,
+          "node": 920648,
+          "children": [
+           {
+            "class": "android.widget.TextView",
+            "text": "0",
+            "id": "com.android.systemui:id/digit_text",
+            "bounds": [
+             516,
+             1511,
+             563,
+             1623
+            ],
+            "node": 921609
+           },
+           {
+            "class": "android.widget.TextView",
+            "text": "+",
+            "id": "com.android.systemui:id/klondike_text",
+            "bounds": [
+             530,
+             1607,
+             548,
+             1650
+            ],
+            "node": 922570
+           }
+          ]
+         },
+         {
+          "class": "android.widget.ImageButton",
+          "desc": "Enter",
+          "id": "com.android.systemui:id/key_enter",
+          "bounds": [
+           688,
+           1482,
+           985,
+           1694
+          ],
+          "clickable": true,
+          "focusable": true,
+          "node": 923531
+         },
+         {
+          "class": "android.widget.Button",
+          "text": "EMERGENCY",
+          "id": "com.android.systemui:id/emergency_call_button",
+          "bounds": [
+           424,
+           1694,
+           655,
+           1794
+          ],
+          "clickable": true,
+          "long_clickable": true,
+          "focusable": true,
+          "node": 926414
+         }
+        ]
+       }
+      ]
+     },
+     {
+      "class": "android.widget.ImageView",
+      "desc": "Unlock",
+      "id": "com.android.systemui:id/lock_icon",
+      "bounds": [
+       485,
+       116,
+       595,
+       226
+      ],
+      "clickable": true,
+      "focusable": true,
+      "node": 119174
+     }
+    ]
+   },
+   "root_ms": 1,
+   "walk_ms": 0,
+   "nodes": 37
+  }
+ ],
+ "nodes": 37,
+ "truncated": false,
+ "time": 1794040682575,
+ "took_ms": 4,
+ "windows_ms": 0
+}

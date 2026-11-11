@@ -1,0 +1,60 @@
+Activity Resolver Table:
+  Non-Data Actions:
+      android.intent.action.MAIN:
+        c5d0204 dev.pinky.crashtest/.Main filter d4f43ed
+          Action: "android.intent.action.MAIN"
+          Category: "android.intent.category.LAUNCHER"
+
+Domain verification status:
+
+Key Set Manager:
+  [dev.pinky.crashtest]
+      Signing KeySets: 71
+
+Packages:
+  Package [dev.pinky.crashtest] (349c543):
+    appId=10213
+    pkg=Package{2fbc95d dev.pinky.crashtest}
+    codePath=/data/app/~~6_crLRPGtzeptG9xYF6Naw==/dev.pinky.crashtest-wkyN-LtDzgV8t6Qsi9ANaA==
+    resourcePath=/data/app/~~6_crLRPGtzeptG9xYF6Naw==/dev.pinky.crashtest-wkyN-LtDzgV8t6Qsi9ANaA==
+    legacyNativeLibraryDir=/data/app/~~6_crLRPGtzeptG9xYF6Naw==/dev.pinky.crashtest-wkyN-LtDzgV8t6Qsi9ANaA==/lib
+    extractNativeLibs=true
+    primaryCpuAbi=null
+    secondaryCpuAbi=null
+    cpuAbiOverride=null
+    versionCode=0 minSdk=29 targetSdk=36
+    minExtensionVersions=[]
+    versionName=null
+    hiddenApiEnforcementPolicy=2
+    usesNonSdkApi=false
+    splits=[base]
+    apkSigningVersion=4
+    flags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    privateFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    forceQueryable=false
+    pageSizeCompat=0
+    scannedAsStoppedSystemApp=false
+    supportsScreens=[small, medium, large, xlarge, resizeable, anyDensity]
+    timeStamp=2026-11-09 17:58:02
+    lastUpdateTime=2026-11-09 17:58:02
+    installerPackageName=null
+    installerPackageUid=-1
+    initiatingPackageName=com.android.shell
+    originatingPackageName=null
+    packageSource=1
+    loadingProgress=100%
+    loadingCompletedTime=2026-11-09 17:58:02
+    appMetadataFilePath=null
+    appMetadataSource=0
+    signatures=PackageSignatures{69023d0 version:4, signatures:[51003ab3], past signatures:[]}
+    installPermissionsFixed=false
+    pkgFlags=[ DEBUGGABLE HAS_CODE ALLOW_CLEAR_USER_DATA ALLOW_BACKUP ]
+    privatePkgFlags=[ PRIVATE_FLAG_ACTIVITIES_RESIZE_MODE_RESIZEABLE_VIA_SDK_VERSION ALLOW_AUDIO_PLAYBACK_CAPTURE PRIVATE_FLAG_ALLOW_NATIVE_HEAP_POINTER_TAGGING ]
+    apexModuleName=null
+    User 0: ceDataInode=82191 deDataInode=90763 installed=true hidden=false suspended=false distractionFlags=0 stopped=false notLaunched=false enabled=0 instant=false virtual=false quarantined=false
+      installReason=0
+      dataDir=/data/user/0/dev.pinky.crashtest
+      firstInstallTime=2026-11-09 17:58:02
+      uninstallReason=0
+      overlay paths:
+        /product/overlay/EmulationPixel6/EmulationPixel6Overlay.apk

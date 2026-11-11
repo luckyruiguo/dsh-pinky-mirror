@@ -1,0 +1,14 @@
+{"app_name":"Example","timestamp":"2026-11-09 12:30:00.00 +0800","app_version":"1.2","build_version":"7","platform":2,"bundleID":"dev.pinky.example","bug_type":"309","os_version":"iPhone OS 26.1 (23B85)","name":"Example","incident_id":"0F0E0D0C-0000-4000-8000-000000000003"}
+{
+  "pid" : 4500,
+  "procName" : "Example",
+  "osVersion" : {"train" : "iPhone OS 26.1", "build" : "23B85"},
+  "exception" : {"codes":"0x0000000000000000, 0x0000000000000000","rawCodes":[0,0],"type":"EXC_CRASH","signal":"SIGKILL"},
+  "termination" : {"code":2343432205,"flags":6,"namespace":"FRONTBOARD","reasons":["<RBSTerminateContext| domain:10 code:0x8BADF00D explanation:scene-update watchdog transgression: app<dev.pinky.example>:4500 exhausted real (wall clock) time allowance of 10.00 seconds"]},
+  "faultingThread" : 0,
+  "threads" : [{"triggered":true,"id":9200,"queue":"com.apple.main-thread","frames":[{"imageOffset":100,"symbol":"usleep","symbolLocation":12,"imageIndex":1},{"imageOffset":256,"symbol":"ContentView.hang()","symbolLocation":30,"imageIndex":0}]}],
+  "usedImages" : [
+  {"source":"P","arch":"arm64","base":4294967296,"size":65536,"uuid":"11111111-2222-3333-4444-555555555555","path":"\/private\/var\/containers\/Bundle\/Application\/AAAA-1111\/Example.app\/Example","name":"Example"},
+  {"source":"P","arch":"arm64e","base":6442450944,"size":1000000,"uuid":"66666666-7777-8888-9999-000000000000","path":"\/usr\/lib\/system\/libsystem_c.dylib","name":"libsystem_c.dylib"}
+]
+}

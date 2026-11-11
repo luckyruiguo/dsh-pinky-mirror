@@ -1,0 +1,56 @@
+name: Update the casks
+
+# Every 15 minutes, Casks/pinky.rb becomes the cask that Pinky's latest
+# release carries (pinky.rb, which its release workflow writes) when that
+# one is newer, so Pinky's workflow needs no token for this repository.
+# This file comes from scripts/release/homebrew-tap/ in DIYgod/pinky, which
+# `scripts/release.sh setup` copies here.
+#
+# GitHub turns off schedules after 60 days without a commit here: a release
+# in that time keeps it on, and "Run workflow" brings it back.
+on:
+  schedule:
+    - cron: "7,22,37,52 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update
+
+jobs:
+  pinky:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+      - name: Take the cask of Pinky's latest release
+        run: |
+          url=https://github.com/DIYgod/pinky/releases/latest/download/pinky.rb
+          if ! curl -fsSL --retry 3 -o "$RUNNER_TEMP/pinky.rb" "$url"; then
+            echo "No release with a cask at $url yet."
+            exit 0
+          fi
+          version() { sed -n 's/^ *version "\([^"]*\)".*/\1/p' "$1" 2>/dev/null | head -n 1; }
+          new=$(version "$RUNNER_TEMP/pinky.rb")
+          old=$(version Casks/pinky.rb)
+          case "$new" in
+          [0-9]*.[0-9]*.[0-9]*) ;;
+          *) echo "::error::The release's pinky.rb has no version"; exit 1 ;;
+          esac
+          ruby -c "$RUNNER_TEMP/pinky.rb" > /dev/null
+          # The newer of the two, comparing each part as a number.
+          newest=$(printf '%s\n%s\n' "$new" "${old:-0.0.0}" | sort -t . -k 1,1n -k 2,2n -k 3,3n | tail -n 1)
+          if [ "$new" = "$old" ] || [ "$newest" != "$new" ]; then
+            echo "Casks/pinky.rb has ${old} already."
+            exit 0
+          fi
+          mkdir -p Casks
+          cp "$RUNNER_TEMP/pinky.rb" Casks/pinky.rb
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Casks/pinky.rb
+          git commit --quiet -m "pinky $new"
+          git push --quiet
+          echo "Casks/pinky.rb installs pinky $new (was ${old:-nothing})."

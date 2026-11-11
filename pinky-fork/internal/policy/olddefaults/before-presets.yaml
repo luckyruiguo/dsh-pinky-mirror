@@ -1,0 +1,62 @@
+# Pinky policy rules.
+#
+# Every action an agent takes through Pinky is checked against these rules.
+# When several rules match, the strictest wins: deny, then ask, then allow.
+# Among rules with the same decision, the first one in this file names the
+# result, so list specific rules before general ones.
+#
+# match fields (all that are set must match; within a field, any value does):
+#   app:      package names, bundle ids or display names
+#   category: categories from the app table (finance, passwords, messaging,
+#             social, stores, browsers, phone, settings, system); add apps to
+#             them in apps.yaml next to this file
+#   action:   commit, payment, send_message, install_app, open_url, call,
+#             change_setting, or an operation: tap, type, swipe, key, launch
+#   label:    case-insensitive text in the label of the element acted on
+#
+# A deny rule that names only apps or categories blocks those apps: the agent
+# does not even get their screen, and their notifications are hidden.
+#
+# Built in and not editable here: typing into password and one-time-code
+# fields is always denied (rule: credentials).
+
+# Read-only mode: the agent may observe, launch apps, tap, scroll and type into
+# search fields; anything that would ask is denied.
+read_only: false
+read_only_devices: []
+
+# Mask digit codes (such as one-time codes) in notifications.
+mask_codes: true
+
+rules:
+  - name: Finance apps
+    match: { category: finance }
+    decision: deny
+
+  - name: Password managers
+    match: { category: passwords }
+    decision: deny
+
+  - name: Payments
+    match: { action: payment }
+    decision: ask
+
+  - name: Messages
+    match: { action: send_message }
+    decision: ask
+
+  - name: Commits
+    match: { action: commit }
+    decision: ask
+
+  - name: Installs and links
+    match: { action: [install_app, open_url] }
+    decision: ask
+
+  - name: Calls
+    match: { action: call }
+    decision: ask
+
+  - name: Settings changes
+    match: { action: change_setting }
+    decision: ask

@@ -1,0 +1,43 @@
+# Build output
+/bin/
+/dist/
+/build/
+/pinky
+/pinky-mirrorbench
+*.test
+*.out
+.mygo/
+
+# macOS
+.DS_Store
+
+# Captures from real devices must never be committed
+/captures/
+*.mp4
+*.h264
+*.h265
+*.hevc
+
+# Android
+android/companion/.gradle/
+android/companion/.kotlin/
+android/companion/**/build/
+android/companion/local.properties
+android/inputtest/.gradle/
+android/inputtest/.kotlin/
+android/inputtest/build/
+android/inputtest/local.properties
+android/standalone/.gradle/
+android/standalone/.kotlin/
+android/standalone/build/
+android/standalone/local.properties
+*.apk
+!internal/apppkg/testdata/*.apk
+*.aab
+
+# Local tools and worktrees
+/tmp/
+/.worktrees/
+/.claude/
+.idea/
+.vscode/

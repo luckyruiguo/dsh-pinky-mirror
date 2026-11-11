@@ -1,0 +1,80 @@
+name: Windows update
+
+# Checks on GitHub's Windows runner that an installed Pinky updates itself
+# (docs/notes/updates.md): it builds three e2e versions of Pinky with their
+# NSIS installers, and cmd/pinky's TestWindowsUpdate installs the oldest
+# quietly, lets it update itself to the next from a local feed, and has the
+# helper roll back the newest, which exits as it starts. Everything stays on
+# the runner: nothing is published, and the job reads neither the releases,
+# latest.json nor the Homebrew tap.
+#
+# It takes some ten minutes, so it runs only when the update code, the
+# Windows packaging or this workflow changes: on main, on pull requests and
+# on the update sessions' branches (claude/update-*); and by hand.
+on:
+  push:
+    branches: [main, "claude/update-*"]
+    paths:
+      - internal/update/**
+      - ui/update.go
+      - cmd/pinky/main.go
+      - cmd/pinky/update*.go
+      - cmd/pinky/mygo.json
+      - go.mod
+      - go.sum
+      - .github/workflows/update-windows.yml
+  pull_request:
+    paths:
+      - internal/update/**
+      - ui/update.go
+      - cmd/pinky/main.go
+      - cmd/pinky/update*.go
+      - cmd/pinky/mygo.json
+      - go.mod
+      - go.sum
+      - .github/workflows/update-windows.yml
+  workflow_dispatch:
+
+concurrency:
+  group: update-windows-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  CGO_ENABLED: "0"
+
+jobs:
+  update:
+    name: Update on Windows
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+
+      - name: Build three versions and their installers
+        shell: bash
+        run: |
+          set -euo pipefail
+          tmp=${RUNNER_TEMP//\\//}
+          mkdir -p "$tmp/setups"
+          # e2e builds (MyGo's automation socket; PINKY_E2E_CRASH_VERSION),
+          # with the inspector's tag left out so that GOFLAGS's tags apply.
+          for v in 2026.1107.1 2026.1107.2 2026.1107.3; do
+            go run ./scripts/release stamp "$v"
+            MYGO_INSPECTOR=1 GOFLAGS=-tags=e2e MYGO_LDFLAGS="-X main.version=$v" \
+              go tool mygo build -platform windows/amd64 -o "$tmp/build-$v" cmd/pinky
+            cp "$tmp/build-$v/windows-amd64/pinky-setup-$v-amd64.exe" "$tmp/setups/"
+          done
+          git checkout -- cmd/pinky/mygo.json
+          ls -l "$tmp/setups"
+
+      - name: Install, update, roll back
+        shell: bash
+        run: |
+          tmp=${RUNNER_TEMP//\\//}
+          PINKY_E2E_SETUPS="$tmp/setups" go test -tags e2e -count=1 -run TestWindowsUpdate -v -timeout 30m ./cmd/pinky/
